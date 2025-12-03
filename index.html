@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kristine Tan's Position Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="portfolio-header">
+        <h1 class="header-title">Kristine Tan's Position Portfolio</h1>
+        <p class="header-instruction">Click on the glowing hotspots to explore</p>
+        <div class="header-decoration">
+            <div class="molecule molecule-1"></div>
+            <div class="molecule molecule-2"></div>
+            <div class="molecule molecule-3"></div>
+        </div>
+
+        <!-- Content Navigation -->
+        <div class="content-nav">
+            <button class="content-button">📋 Content</button>
+            <div class="content-dropdown">
+                <a href="#" class="nav-item" data-info="goggles">My Position</a>
+                <a href="#" class="nav-item" data-info="moments">Moments with AI</a>
+                <a href="#" class="nav-item" data-info="vibecoding">AI Partnership</a>
+                <a href="#" class="nav-item" data-info="testtubes">Learning with AI</a>
+                <a href="#" class="nav-item" data-info="monitors">Evidence from Readings</a>
+                <a href="#" class="nav-item" data-info="peers">Human Partners</a>
+                <a href="#" class="nav-item" data-info="beakers">Thank you</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="lab-scene">
+            <!-- Main Image Container -->
+            <img src="lab-scene.png" alt="Vibe Coding Laboratory" class="main-image" id="mainImage">
+
+            <!-- Interactive Hotspots -->
+            <div class="hotspot hotspot-goggles" data-info="goggles">
+                <div class="pulse"></div>
+                <span class="hotspot-label">My Position</span>
+            </div>
+
+            <div class="hotspot hotspot-elbow" data-info="moments">
+                <div class="pulse"></div>
+                <span class="hotspot-label">Moments with AI</span>
+            </div>
+
+            <div class="hotspot hotspot-vibe-coding" data-info="vibecoding">
+                <div class="pulse"></div>
+                <span class="hotspot-label">AI Partnership</span>
+            </div>
+
+            <div class="hotspot hotspot-test-tubes" data-info="testtubes">
+                <div class="pulse"></div>
+                <span class="hotspot-label">Learning with AI</span>
+            </div>
+
+            <div class="hotspot hotspot-monitors" data-info="monitors">
+                <div class="pulse"></div>
+                <span class="hotspot-label">Evidence from Readings</span>
+            </div>
+
+            <div class="hotspot hotspot-beakers" data-info="beakers">
+                <div class="pulse"></div>
+                <span class="hotspot-label">Thank you</span>
+            </div>
+
+            <div class="hotspot hotspot-peers" data-info="peers">
+                <div class="pulse"></div>
+                <span class="hotspot-label">Human Partners</span>
+            </div>
+        </div>
+
+        <!-- Info Panel -->
+        <div class="info-panel" id="infoPanel">
+            <button class="close-btn" id="closeBtn">&times;</button>
+            <div class="info-content" id="infoContent">
+                <h2>Welcome to Vibe Coding Lab!</h2>
+                <p>Click on the glowing hotspots to explore the laboratory and discover what we do.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Data -->
+    <div id="infoData" style="display: none;">
+        <div data-section="goggles">
+            <h2>My Position</h2>
+            <div class="video-container">
+                <video controls class="portfolio-video">
+                    <source src="iDEA.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="position-content">
+                <p class="opening-statement"><strong>I have mixed feelings about creating with AI.</strong></p>
+
+                <h3>1) The Magic of AI Partnership</h3>
+                <p>Working with an AI partner is a nearly magical experience, much like the elephant toothpaste chemical reaction I showed in my Canva video. Starting with just a few simple "ingredients," I can transform initial thoughts into tangible work in a blink (though usually, it takes a little longer) by using a series of initial, but continually refining, prompts.</p>
+
+                <p><a href="#" class="paradox-link" data-link="paradox">Learn more about The Paradox of Predictability</a></p>
+
+                <h3>2) It can get MESSY</h3>
+                <p>However, just as the chemical reaction's "toothpaste" can be unpredictable or undesirable, the AI's output depends on various factors: the precision of your prompts, the sophistication of your core idea, the model you're using and its training data, and your patience when the AI struggles to interpret your input... Things can turn out massively different than what we expected and may change our thoughts and motivation during the process too.</p>
+
+                <p><a href="#" class="threat-link" data-link="threat">Read about A Threat to My Imagination</a></p>
+            </div>
+        </div>
+
+        <div data-section="paradox">
+            <h2>The Paradox of Predictability</h2>
+            <div class="paradox-content">
+                <p>A central dynamic of vibe coding is the question of predictability. When I started working with AI, its novelty meant my initial sense of predictability was low—I simply didn't know the full extent of its capabilities.</p>
+
+                <p>I initially presumed that as I became more familiar with these tools, my uncertainty about their intelligence would decrease. However, as I compose this portfolio, I remain astonished by their ability to understand and generate content based on implied meaning—messages that seem to be "hidden between the lines" and that share much with human intuition.</p>
+
+                <p>For instance, I asked Claude to make a photograph interactive. While I was thinking of flashing hotspots on different parts of the image without explicitly stating that in my prompt, the AI nonetheless executed the exact same concept, successfully visualizing my unspoken intent.</p>
+
+                <p><a href="#" class="back-link" data-link="goggles">← Back to My Position</a></p>
+            </div>
+        </div>
+
+        <div data-section="threat">
+            <h2>A Threat to My Imagination</h2>
+            <div class="threat-content">
+                <p>A threat lies in the homogeneity of content generated by AI, which ultimately constrains my imagination when designing a website. Tools like Claude and Replit often supply default fonts and backgrounds that continually reappear. This inherent reliance on standardized elements means I sometimes struggle to start a design entirely from scratch to achieve my own unique vision.</p>
+
+                <p>Authors of art and the science of generative AI agree with me on the homogeneity of AI-generated content and discussed its impact on culture and aesthetics:</p>
+
+                <blockquote class="reading-quote">
+                    <p>"AI-generated content may also feed future generative models, creating a self-referential aesthetic flywheel that could perpetuate AI-driven cultural norms. This flywheel may in turn reinforce generative AI's aesthetics, as well as the biases these models exhibit." (p. 3, Epstein et al.)</p>
+                </blockquote>
+
+                <p><a href="#" class="back-link" data-link="goggles">← Back to My Position</a></p>
+            </div>
+        </div>
+
+        <div data-section="moments">
+            <h2>Moments with AI </h2>
+            <div class="moments-content">
+                <p>Throughout my journey with AI, I've experienced both incredible breakthroughs and frustrating setbacks, shaping my mixed thoughts on AI and also making me realize how complicated human communication is. Here are some memorable moments:</p>
+               
+                <h3>✨ Moments of Amazement</h3>
+                <p> I did several projects where I find AI a fantastic tool in completing the strategizing/computing part of my design. </p>
+
+                <div class="amazement-images">
+                    <div class="amazement-image-container">
+                        <img src="decision.png" alt="Harvard Graduates' Social Event Decision Maker" class="amazement-image">
+                    <p> I had an idea of what I want to make a decision-aid tool through asking people's condition and needs. AI automatically generates a mechanism for recommending actions: go or not go. I felt relaxed because I didn't have to build a decision tree myself, and the recomanded actions make sense 90% of the time. </p>
+                    </div>
+                    <div class="amazement-image-container">
+                        <img src="leaf.png" alt="AI Project - Leaf" class="amazement-image">
+                    <p> Working with Figma Mix was a great experience for me because I can get a lot of inspiration from the community. It was also Chinese-friendly, so I was able to both prompt and get the product in Chinese. </p>
+                    <p> In my project, I used the "Fortune Cookie Model" to build a randome message distrubting tool. Thanks to AI, I was able to embed a secret golden leaf with a "HAPPY BIRTHDAY" meesage on it falling from the sky to surprise my mom. AI helped me to randomize other falling leaf so the golden one is more salient. AI also did a great job adding visual effects automatically to make the project look better. With its help, I had more time in class to add sound effect and other hidden messages for my mom. </p>
+                    <p> I was so proud to send my mom a vibe coded birthday gift. </p>
+                    
+                    </div>
+                    
+                </div>
+
+                <h3>❌ Moments of Failure</h3>
+                <p> Epic failure of creating a 3D game using multiple sources. I felt confident before using Claude because I created the game rules, collected models for the scene and characters, and design a flowchart to make sure I can integrate sepearate sources. However, my prompt was way too long due to my ambition. And I didn't do enough research on how to integrate different 3D models specifically. The preview of my "GAME" was a guy that can never actually show up and a kitchen counter that is way smaller than the avocado </p>
+
+                <div class="game-image-container">
+                    <img src="game.png" alt="Failed 3D Game Attempt" class="game-image">
+                </div>
+
+                <p><a href="#" class="back-link" data-link="moments-main">← Back</a></p>
+            </div>
+        </div>
+
+        <div data-section="vibecoding">
+            <h2>AI partnership</h2>
+            <p>I sometimes find AI a great creative partner.</p>
+            <div class="amazement-image-container">
+                        <img src="avocado singer.png" alt="AI Project - Avocado Singer" class="amazement-image">
+                    <p>  AI randomly putting the microphone above the avocado inspired me to make a "grab a mic" game! This is when I feel it shares the creative responsibility with me and create with me nearly equally. </p>
+                    </div>
+            
+            <ul>
+                <li>AI-Powered Development</li>
+                <li>Real-time Collaboration</li>
+                <li>#AIismybestfriendforclass JK</li>
+            </ul>
+        </div>
+
+        <div data-section="testtubes">
+            <h2>📚 AI as an Integrated Learning Partner</h2>
+            <p>One of the most valuable lessons I learned—thanks to our beloved TF, Dhyan—is that the resources needed for a project can often be accessed simply by asking the AI.</p>
+
+            <p>In my previous learning and creating experiences, developing a project required manually navigating multiple sources: finding a template on Canva, synthesizing content from textbooks and notebooks, and consulting instructors for material integration. Now, AI functions as a Pandora's box of knowledge, acting as a subject matter expert in nearly every domain.</p>
+
+            <p>This shift began when I encountered coding bugs. My initial reaction was to ask Dhyan for help; his simple advice, "tell Claude to debug itself," completely changed my workflow. From that experience, I realized the power of learning with AI whenever a need arises. Similarly, when I needed to publish my website, I learned to bypass asking others and instead turned directly to Claude. Now, whenever an error or issue emerges, my first step is to consult Claude, which has been instrumental in successfully executing my projects.</p>
+        </div>
+
+        <div data-section="monitors">
+            <h2>Evidence from the readings</h2>
+            <p>Explore insights from academic readings that inform my position on AI and creativity:</p>
+
+            <div class="reading-buttons">
+                <a href="#" class="reading-button empire-button" data-link="empire-reading">
+                    📚 Empire of AI
+                </a>
+                <a href="#" class="reading-button bacteria-button" data-link="bacteria-reading">
+                    🦠 Bacteria to AI: Human Futures with Our Nonhuman Symbionts
+                </a>
+            </div>
+        </div>
+
+        <div data-section="empire-reading">
+            <h2>Empire of AI</h2>
+            <p>In Empire of AI, the author posed the Threat of Language Loss due to LLMs.</p>
+
+            <blockquote class="reading-quote">
+                <p>"Large language models accelerate language loss. Even for models several generations earlier like GPT-2, there are only a few languages in the world that are spoken by enough people and documented online at sufficient scale to fulfill the data imperative of these models. Among the over seven thousand languages that still exist today, almost half are endangered according to UNESCO; about a third have some online presence; less than 2 percent are supported by Google Translate; and according to OpenAI's own testing, only fifteen, or 0.2 percent, are supported by GPT-4 above an 80 percent accuracy. As these models become digital infrastructure, the internet's accessibility to different language communities—and the accessibility of the economic opportunities it provides—will continue to shrink, incentivizing more and more of those communities to prioritize learning and speaking a dominant language like English over their own." (Hao, p. 410)</p>
+            </blockquote>
+
+            <div class="reflection-content">
+                <h3>🗣️ Linguistic Barriers and Creative Disempowerment</h3>
+                <p>My experience creating with AI is marked by a tension between my creative vision and the tools' linguistic requirements. As a non-native English speaker, I often feel less empowered, incompatible, and even inferior when collaborating with AI, or when comparing my output to that of my English-speaking counterparts.</p>
+
+                <p>I can articulate my creative intent with poetic fluency in Chinese, but translating those nuanced visions into the procedural English terms required by Large Language Models (LLMs) demands significantly more effort. This feeling of being disempowered and incompatible is directly related to how LLMs are constructed and the linguistic systems they prioritize.</p>
+
+                <h3>🌐 The Systemic Challenge of Linguistic Dominance</h3>
+                <p>My struggle highlights a significant and well-documented challenge arising from the current development paradigm of generative AI: the issue of linguistic dominance and the data required to train these powerful models.</p>
+
+                <p>The vast majority of current generative AI is built on a "data imperative" that primarily centers dominant languages like English. This focus often leads to the marginalization and disempowerment of creators who express themselves in other rich linguistic traditions, such as Chinese. Consequently, my own rich linguistic tradition is not fully leveraged, creating a gap between my expressive capacity and the AI's understanding.</p>
+            </div>
+
+            <p><a href="#" class="back-link" data-link="monitors">← Back to Evidence from the readings</a></p>
+        </div>
+
+        <div data-section="bacteria-reading">
+            <h2>Bacteria to AI: Human Futures with Our Nonhuman Symbionts</h2>
+            <p>Exploring the concept of man-computer symbiosis and its implications for our future.</p>
+
+            <blockquote class="reading-quote">
+                <p>"The larva of the fig insect lives in the ovary of the fig tree, and there it gets its food. The tree and the fig insect are thus heavily interdependent: the tree cannot reproduce without the insect; the insect cannot eat without the tree; together, they constitute not only a viable but a productive and thriving partnership. This cooperative 'living together in intimate association, or even close union, of two dissimilar organisms' is called symbiosis.</p>
+                <p>Man-computer symbiosis is a subclass of man-machine systems." (p.4, Licklider)</p>
+            </blockquote>
+
+            <div class="reflection-content">
+                <h3>💻 Ambivalence Toward Man-Computer Symbiosis</h3>
+                <p>I naturally feel reluctant and even uncomfortable with the argument for man-computer symbiosis because the intimate and potentially inseparable association between humans and computers feels too real. This symbiosis indicates that humans can't thrive or even just survive without AI, creating a sense of hopelessness. However, this symbiosis once predicted for the distant future when the original text was written, is now a reality. We are currently experiencing AI creating content and images that seem to be beyond what a human could ever conceive in a short period time. Jobs are replaced by AI agents, and people are being urged to control and master AI tools at all ages. It seems too real.</p>
+
+                <p>However, the latter part of the article—which describes distinct roles where humans are the decision-makers and computers handle routinized tasks—temporarily relieves my apprehension about AI taking over human work. This statement explicates the ultimate ideal goal for working with AI: achieving a supported and seamless workflow where individuals benefit from monitoring and guidance tailored to their specific behaviors and intelligence. Crucially, this collaboration must be designed to actively avoid systemic bias and maintain full transparency regarding the AI models' limitations. </p>
+                <p>This ambivalent and conflicting view urges me to deeply research, study, and understand the full scope of what AI is and what it can be in my foreseeable future.</p>
+            </div>
+
+            <p><a href="#" class="back-link" data-link="monitors">← Back to Evidence from the readings</a></p>
+        </div>
+
+        <div data-section="beakers">
+            <h2>Thank you Vibe Coding Teaching Team</h2>
+            <p>It was trully a transformative learning journey for me.</p>
+            <ul>
+                <li>💖 Thank you Karen</li>
+                <li>💙 Thank you Jacob</li>
+                <li>💜 Thank you Dyhan and other TFs</li>
+                <li>💚 #GoodVibesOnly</li>
+            </ul>
+        </div>
+
+        <div data-section="peers">
+            <h2>Creating with human partners</h2>
+            <p> I use AI to bring my thoughts to life, but being with creative peers in class has been truly transformative for me. They constantly model creativity and push me to think outside the box, to find the "unicorn," or to genuinely deepen my understanding and broaden my view on subjects I thought I already knew. </p>
+            <p> In our first class, a girl showed me her anti-domestic violence project built merely on text and souds. It was shocking to me. I was so impressed. That was a life-changing moment. I have never thought how plain text on a screen could be so powerful</p>
+            <p> Although I sometimes find that certain algorithms or systems do not work optimally for me, I am genuinely happy to see them succeed for others. The beautiful work created by my peers is a constant source of inspiration and joy.</p>
+            
+           <div class="peers-image-container">
+                <img src="IMG_0754.jpg" alt="Creating with Human Partners" class="peers-image">
+            </div>
+
+            <ul>
+                <li>Human Intelligence</li>
+                <li>Knowledge Sharing</li>
+                <li>Peer Learning</li>
+                </ul>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="portfolio-footer">
+        <p class="disclosure-text">AI disclosure: large language models and generative AI were used in the grammar checks and language refinement of the text, in the creation of the projects, and in this page's HTML, pictures, and videos, but not used in creating this page's written text.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
