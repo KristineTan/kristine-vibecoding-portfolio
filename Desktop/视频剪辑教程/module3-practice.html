@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实战练习 - 餐厅宣传视频课程</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+            background-color: #f5f0eb;
+            color: #4a3f35;
+            line-height: 1.8;
+            font-size: 20px;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px 15px;
+        }
+
+        header {
+            background-color: #d4c4b0;
+            padding: 25px 15px;
+            margin-bottom: 25px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 15px;
+            color: #4a3f35;
+            text-decoration: none;
+            font-size: 22px;
+            padding: 10px 15px;
+            min-height: 44px;
+            transition: transform 0.2s;
+        }
+
+        .back-link:active {
+            transform: translateX(-5px);
+            background-color: rgba(0,0,0,0.05);
+            border-radius: 5px;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #4a3f35;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .module-icon {
+            font-size: 56px;
+            margin-bottom: 15px;
+        }
+
+        .content-section {
+            background-color: white;
+            padding: 25px 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            font-size: 26px;
+            color: #4a3f35;
+            margin-bottom: 15px;
+            border-left: 5px solid #d4c4b0;
+            padding-left: 15px;
+            line-height: 1.4;
+        }
+
+        h3 {
+            font-size: 22px;
+            color: #6b5d52;
+            margin: 25px 0 12px;
+            line-height: 1.4;
+        }
+
+        h4 {
+            font-size: 20px;
+            color: #6b5d52;
+            margin: 20px 0 10px;
+            line-height: 1.4;
+        }
+
+        p {
+            margin-bottom: 18px;
+            line-height: 1.7;
+        }
+
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 18px;
+        }
+
+        li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .tip-box, .step-box, .warning-box, .goal-box {
+            border-left: 5px solid #ffc107;
+            padding: 20px 18px;
+            margin: 25px 0;
+            border-radius: 5px;
+        }
+
+        .tip-box {
+            background-color: #fff9e6;
+            border-left-color: #ffc107;
+        }
+
+        .tip-box strong {
+            color: #f57c00;
+            font-size: 21px;
+        }
+
+        .step-box {
+            background-color: #e8f5e9;
+            border-left-color: #4caf50;
+        }
+
+        .step-box strong {
+            font-size: 21px;
+        }
+
+        .warning-box {
+            background-color: #ffebee;
+            border-left-color: #f44336;
+        }
+
+        .warning-box strong {
+            font-size: 21px;
+        }
+
+        .goal-box {
+            background-color: #e3f2fd;
+            border-left-color: #2196f3;
+        }
+
+        .goal-box strong {
+            color: #1976d2;
+            font-size: 21px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .btn {
+            background-color: #4a3f35;
+            color: white;
+            padding: 18px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 20px;
+            text-align: center;
+            display: block;
+            min-height: 56px;
+            line-height: 1.3;
+            transition: background-color 0.3s;
+            font-weight: 500;
+        }
+
+        .btn:active {
+            background-color: #6b5d52;
+        }
+
+        .btn-secondary {
+            background-color: #d4c4b0;
+            color: #4a3f35;
+        }
+
+        .btn-secondary:active {
+            background-color: #c4b4a0;
+        }
+
+        /* Tablet and larger screens */
+        @media (min-width: 768px) {
+            body {
+                font-size: 19px;
+            }
+
+            .container {
+                padding: 35px 25px;
+            }
+
+            header {
+                padding: 30px 25px;
+                margin-bottom: 35px;
+            }
+
+            h1 {
+                font-size: 38px;
+            }
+
+            h2 {
+                font-size: 30px;
+                padding-left: 18px;
+            }
+
+            h3 {
+                font-size: 24px;
+            }
+
+            h4 {
+                font-size: 22px;
+            }
+
+            .content-section {
+                padding: 35px 30px;
+                margin-bottom: 25px;
+            }
+
+            .nav-buttons {
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 20px;
+            }
+
+            .btn {
+                padding: 16px 30px;
+                font-size: 19px;
+            }
+        }
+
+        /* Desktop screens */
+        @media (min-width: 1024px) {
+            body {
+                font-size: 18px;
+            }
+
+            .container {
+                padding: 40px 20px;
+            }
+
+            header {
+                padding: 30px 20px;
+                margin-bottom: 40px;
+            }
+
+            h1 {
+                font-size: 42px;
+            }
+
+            h2 {
+                font-size: 32px;
+                padding-left: 20px;
+            }
+
+            h3 {
+                font-size: 24px;
+            }
+
+            h4 {
+                font-size: 22px;
+            }
+
+            .content-section {
+                padding: 40px;
+                margin-bottom: 30px;
+            }
+
+            .back-link:hover {
+                transform: translateX(-5px);
+            }
+
+            .btn:hover {
+                background-color: #6b5d52;
+            }
+
+            .btn-secondary:hover {
+                background-color: #c4b4a0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="back-link">← 返回课程主页</a>
+            <div class="module-icon">✏️</div>
+            <h1>实战练习</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-section">
+            <h2>实战练习一：用"AI成片"快速制作"大厨牛肉粉"短视频</h2>
+
+            <div class="goal-box">
+                <strong>🎯 练习目标</strong>
+                <ul>
+                    <li><strong>核心掌握：</strong>体验剪映"AI成片"从导入素材到导出成品的完整流程。</li>
+                    <li><strong>关键操作：</strong>学会为AI生成的视频添加并自定义文字标题。</li>
+                    <li><strong>达成成果：</strong>在15分钟内，独立完成一个带有动态模板和自定义标题的精彩短片。</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>📁 练习前准备</h2>
+
+            <div class="step-box">
+                <ul>
+                    <li><strong>素材准备：</strong>3-4段已拍摄好的"大厨制作牛肉粉"视频（建议包含特写、过程、成品展示）。</li>
+                    <li><strong>文案准备：</strong>一句简单的视频描述，例如："看大厨现场制作招牌牛肉粉，汤鲜肉嫩，热气腾腾！"</li>
+                    <li><strong>软件准备：</strong>确保手机已安装最新版 "剪映" App。</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>🚀 分步操作指南</h2>
+
+            <h3>第一步：启动AI，上传素材</h3>
+            <ol>
+                <li>打开剪映App，点击首页正中的 <strong>【AI成片】</strong> 按钮。</li>
+                <li>点击 <strong>【上传素材】</strong>，从手机相册中勾选你准备好的牛肉粉视频。</li>
+                <li>在"描述视频内容"框里，输入或粘贴你准备好的描述文案。</li>
+                <li>点击 <strong>【生成视频】</strong>，等待AI自动创作。</li>
+            </ol>
+
+            <h3>第二步：预览并导出初版视频</h3>
+            <ol>
+                <li>观看AI生成的预览视频（已自动配好模板、音乐和字幕）。</li>
+                <li>如果整体效果满意，直接点击右下角的 <strong>【导出】</strong> 按钮。</li>
+                <li>视频将自动保存到你的手机相册。这一步得到了一个"半成品"。</li>
+            </ol>
+
+            <h3>第三步：添加并美化你的专属标题</h3>
+            <ol>
+                <li>回到剪映首页，点击 <strong>【开始创作】</strong>，导入你刚刚保存好的那个视频。</li>
+                <li>滑动底部工具栏，找到并点击 <strong>【文字】</strong> → <strong>【添加文本】</strong>。</li>
+                <li>输入你的专属标题，例如："山海荟 · 招牌现熬牛肉粉"。</li>
+                <li>自定义你的文字（这是练习重点）：
+                    <ul>
+                        <li><strong>改字体：</strong>点击"样式"，在字体库中选择一个喜欢的（如"特粗宋"显眼，"文艺体"雅致）。</li>
+                        <li><strong>调大小：</strong>用双指在屏幕上 pinch 缩放文字，调整到合适大小。</li>
+                        <li><strong>摆位置：</strong>长按拖动文字，将其放置在视频上方或下方的醒目位置。</li>
+                    </ul>
+                </li>
+                <li>调整满意后，再次点击 <strong>【导出】</strong>，保存最终版到相册。</li>
+            </ol>
+
+            <div class="tip-box">
+                <strong>💡 完成标志：</strong>
+                <p>当你在相册里看到一个带有你店铺专属标题、配有音乐和动态效果的牛肉粉短视频时，恭喜你！这就是你的第一个独立作品。</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>✅ 练习检查清单</h2>
+
+            <div class="warning-box">
+                <strong>完成后自查：</strong>
+                <ul>
+                    <li>☐ 视频时长在15-30秒之间</li>
+                    <li>☐ 画面清晰，没有抖动</li>
+                    <li>☐ 标题文字大小合适，位置醒目</li>
+                    <li>☐ 字体风格符合餐厅品牌形象</li>
+                    <li>☐ 背景音乐与视频内容匹配</li>
+                    <li>☐ 整体观感流畅自然</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>🎓 练习心得</h2>
+
+            <div class="tip-box">
+                <strong>💡 记住这个流程：</strong>
+                <p>以后制作任何视频都可以按照这个步骤：</p>
+                <ol>
+                    <li>准备素材（拍摄视频）</li>
+                    <li>AI快速成片（自动剪辑）</li>
+                    <li>添加个性化元素（标题、文字）</li>
+                    <li>导出分享（发布到抖音）</li>
+                </ol>
+                <p><strong>熟能生巧！</strong>多做几次练习，你就能在10分钟内完成一个短视频了。</p>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="module3-ai-editing.html" class="btn btn-secondary">← 上一节: 剪映功能学习</a>
+            <a href="module4-douyin-operation.html" class="btn">下一模块: 抖音运营 →</a>
+        </div>
+    </div>
+</body>
+</html>

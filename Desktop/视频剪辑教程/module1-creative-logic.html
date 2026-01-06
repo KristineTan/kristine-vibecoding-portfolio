@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视频创作逻辑 - 餐厅宣传视频课程</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+            background-color: #f5f0eb;
+            color: #4a3f35;
+            line-height: 1.8;
+            font-size: 20px;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px 15px;
+        }
+
+        header {
+            background-color: #d4c4b0;
+            padding: 25px 15px;
+            margin-bottom: 25px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 15px;
+            color: #4a3f35;
+            text-decoration: none;
+            font-size: 22px;
+            padding: 10px 15px;
+            min-height: 44px;
+            transition: transform 0.2s;
+        }
+
+        .back-link:active {
+            transform: translateX(-5px);
+            background-color: rgba(0,0,0,0.05);
+            border-radius: 5px;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #4a3f35;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .module-icon {
+            font-size: 56px;
+            margin-bottom: 15px;
+        }
+
+        .content-section {
+            background-color: white;
+            padding: 25px 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            font-size: 26px;
+            color: #4a3f35;
+            margin-bottom: 15px;
+            border-left: 5px solid #d4c4b0;
+            padding-left: 15px;
+            line-height: 1.4;
+        }
+
+        h3 {
+            font-size: 22px;
+            color: #6b5d52;
+            margin: 25px 0 12px;
+            line-height: 1.4;
+        }
+
+        p {
+            margin-bottom: 18px;
+            line-height: 1.7;
+        }
+
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 18px;
+        }
+
+        li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .tip-box, .example-box, .exercise-box {
+            border-left: 5px solid #ffc107;
+            padding: 20px 18px;
+            margin: 25px 0;
+            border-radius: 5px;
+        }
+
+        .tip-box {
+            background-color: #fff9e6;
+            border-left-color: #ffc107;
+        }
+
+        .tip-box strong {
+            color: #f57c00;
+            font-size: 21px;
+        }
+
+        .example-box {
+            background-color: #e8f5e9;
+            border-left-color: #4caf50;
+        }
+
+        .example-box strong {
+            font-size: 21px;
+        }
+
+        .exercise-box {
+            background-color: #e3f2fd;
+            border-left-color: #2196f3;
+        }
+
+        .exercise-box strong {
+            font-size: 21px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .btn {
+            background-color: #4a3f35;
+            color: white;
+            padding: 18px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 20px;
+            text-align: center;
+            display: block;
+            min-height: 56px;
+            line-height: 1.3;
+            transition: background-color 0.3s;
+            font-weight: 500;
+        }
+
+        .btn:active {
+            background-color: #6b5d52;
+        }
+
+        .btn-secondary {
+            background-color: #d4c4b0;
+            color: #4a3f35;
+        }
+
+        .btn-secondary:active {
+            background-color: #c4b4a0;
+        }
+
+        /* Tablet and larger screens */
+        @media (min-width: 768px) {
+            body {
+                font-size: 19px;
+            }
+
+            .container {
+                padding: 35px 25px;
+            }
+
+            header {
+                padding: 30px 25px;
+                margin-bottom: 35px;
+            }
+
+            h1 {
+                font-size: 38px;
+            }
+
+            h2 {
+                font-size: 30px;
+                padding-left: 18px;
+            }
+
+            h3 {
+                font-size: 24px;
+            }
+
+            .content-section {
+                padding: 35px 30px;
+                margin-bottom: 25px;
+            }
+
+            .nav-buttons {
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 20px;
+            }
+
+            .btn {
+                padding: 16px 30px;
+                font-size: 19px;
+            }
+        }
+
+        /* Desktop screens */
+        @media (min-width: 1024px) {
+            body {
+                font-size: 18px;
+            }
+
+            .container {
+                padding: 40px 20px;
+            }
+
+            header {
+                padding: 30px 20px;
+                margin-bottom: 40px;
+            }
+
+            h1 {
+                font-size: 42px;
+            }
+
+            h2 {
+                font-size: 32px;
+                padding-left: 20px;
+            }
+
+            h3 {
+                font-size: 24px;
+            }
+
+            .content-section {
+                padding: 40px;
+                margin-bottom: 30px;
+            }
+
+            .back-link:hover {
+                transform: translateX(-5px);
+            }
+
+            .btn:hover {
+                background-color: #6b5d52;
+            }
+
+            .btn-secondary:hover {
+                background-color: #c4b4a0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="back-link">← 返回课程主页</a>
+            <div class="module-icon">📱</div>
+            <h1>模块一: 视频创作逻辑</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-section">
+            <h2>课程目标</h2>
+            <p>学完本模块后，你将学会：</p>
+            <ul>
+                <li>明确餐饮视频的核心目标</li>
+                <li>理解脚本与非脚本内容的区别</li>
+                <li>掌握内部和外部节点的内容策划方法</li>
+                <li>学会持续产出新鲜内容的技巧</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>1. 明确目标：让人想来这家店</h2>
+
+            <p>抖音餐饮视频的核心<strong>不是"拍得多专业"</strong>，而是让观众看完觉得：</p>
+
+            <div class="tip-box">
+                <strong>➡️ 核心感受：</strong>
+                <ul>
+                    <li>好吃</li>
+                    <li>好看</li>
+                    <li>氛围好</li>
+                    <li>想来试</li>
+                </ul>
+            </div>
+
+            <h3>拍摄前先确定：想突出什么？</h3>
+            <ul>
+                <li>招牌菜？</li>
+                <li>环境？</li>
+                <li>服务？</li>
+                <li>人气？</li>
+                <li>性价比？</li>
+                <li>特色？</li>
+            </ul>
+
+            <p>只要能让观众产生"想去试试"的念头，这条视频就成功了！</p>
+        </div>
+
+        <div class="content-section">
+            <h2>2. 需不需要提前策划写脚本做剧情</h2>
+
+            <p>看时间和情况，两种方式各有用处：</p>
+
+            <h3>A. 有脚本内容（重点：质量、转化）</h3>
+
+            <div class="example-box">
+                <strong>📗 适合场景：</strong>
+                <ul>
+                    <li>需要吸引新客</li>
+                    <li>做爆款机会高</li>
+                    <li>新菜品发布、活动、店铺故事</li>
+                </ul>
+
+                <p><strong>特点：</strong></p>
+                <ul>
+                    <li>有计划</li>
+                    <li>目的性强</li>
+                    <li>镜头安排明确</li>
+                    <li>剪辑更精致</li>
+                </ul>
+            </div>
+
+            <h3>B. 无脚本内容（重点：更新频率、真实感）</h3>
+
+            <div class="example-box">
+                <strong>📗 适合场景：</strong>
+                <ul>
+                    <li>日常更新</li>
+                    <li>保持账号活跃度</li>
+                    <li>累积素材快速发视频</li>
+                    <li>展示真实生活气息</li>
+                </ul>
+
+                <p><strong>特点：</strong></p>
+                <ul>
+                    <li>随手拍</li>
+                    <li>后期简单剪辑</li>
+                    <li>甚至直接发布原片</li>
+                </ul>
+            </div>
+
+            <div class="tip-box">
+                <strong>💡 建议：</strong> 刚开始可以多拍无脚本内容，熟练后再尝试有脚本的精品视频。两种方式结合使用效果最好！
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>3. 如何变着花样做出新内容</h2>
+
+            <p>关注两个点：内部节点和外部节点</p>
+
+            <h3>1）内部节点（店里发生的）→ 高质量、脚本拍摄</h3>
+
+            <p><strong>目的：</strong>转化 + 宣传</p>
+            <p><strong>特点：</strong>提前策划 + 专注卖点 + 专业剪辑</p>
+
+            <div class="example-box">
+                <strong>📗 内部节点举例：</strong>
+                <ul>
+                    <li><strong>新菜发布</strong> - 展示新菜的制作过程和最终效果</li>
+                    <li><strong>优惠活动</strong> - 强调限时优惠，刺激消费</li>
+                    <li><strong>新厨师入职</strong> - 介绍厨师背景和拿手菜</li>
+                    <li><strong>节日套餐上线</strong> - 展示节日特色菜品</li>
+                    <li><strong>后厨升级透明化</strong> - 展示干净整洁的后厨环境</li>
+                </ul>
+            </div>
+
+            <h3>2）外部节点（外部环境的）→ 抓热点、快速剪辑</h3>
+
+            <p><strong>目的：</strong>曝光 + 涨粉</p>
+            <p><strong>特点：</strong>随手拍 + 模板化 + 节奏感</p>
+
+            <div class="example-box">
+                <strong>📗 外部节点举例：</strong>
+                <ul>
+                    <li><strong>元旦/春节祝福</strong> - 简单祝福视频，增加亲切感</li>
+                    <li><strong>跨年倒计时</strong> - 跟随热点，增加曝光</li>
+                    <li><strong>马年大吉、新春美食</strong> - 结合节日氛围</li>
+                    <li><strong>热门音乐跟拍</strong> - 使用抖音热门BGM，增加推荐</li>
+                </ul>
+            </div>
+
+            <div class="tip-box">
+                <strong>💡 实用技巧：</strong>
+                <ul>
+                    <li>内部节点每周1-2条（精心策划）</li>
+                    <li>外部节点随时抓热点（快速发布）</li>
+                    <li>两者结合，保持账号活跃，又不失质量</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>4. 内容策划实战练习</h2>
+
+            <div class="exercise-box">
+                <strong>✏️ 练习：</strong> 为你的餐厅策划一周的内容
+
+                <p><strong>内部节点内容（1-2条）：</strong></p>
+                <ul>
+                    <li>想突出什么？（招牌菜/新菜/环境/服务）_______________</li>
+                    <li>拍摄什么内容？_______________</li>
+                    <li>需要提前准备什么？_______________</li>
+                </ul>
+
+                <p><strong>外部节点内容（随时抓热点）：</strong></p>
+                <ul>
+                    <li>本周有什么节日或热点？_______________</li>
+                    <li>可以怎么结合你的餐厅？_______________</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>总结</h2>
+            <p>记住这几个关键点：</p>
+            <ul>
+                <li>✅ <strong>核心目标：</strong>让人看完想来你的店</li>
+                <li>✅ <strong>脚本内容：</strong>质量高，转化强（内部节点）</li>
+                <li>✅ <strong>随手拍：</strong>更新快，真实感（外部节点）</li>
+                <li>✅ <strong>两者结合：</strong>既有质量又有数量</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 下一步：</strong> 掌握了内容策划的逻辑后，接下来我们将学习如何用手机拍出吸引人的视频！
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="index.html" class="btn btn-secondary">← 返回主页</a>
+            <a href="module2-shooting-tips.html" class="btn">下一模块: 拍摄技巧 →</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拍摄基础设置 - 餐厅宣传视频课程</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+            background-color: #f5f0eb;
+            color: #4a3f35;
+            line-height: 1.8;
+            font-size: 20px;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px 15px;
+        }
+
+        header {
+            background-color: #d4c4b0;
+            padding: 25px 15px;
+            margin-bottom: 25px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 15px;
+            color: #4a3f35;
+            text-decoration: none;
+            font-size: 22px;
+            padding: 10px 15px;
+            min-height: 44px;
+            transition: transform 0.2s;
+        }
+
+        .back-link:active {
+            transform: translateX(-5px);
+            background-color: rgba(0,0,0,0.05);
+            border-radius: 5px;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #4a3f35;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .module-icon {
+            font-size: 56px;
+            margin-bottom: 15px;
+        }
+
+        .content-section {
+            background-color: white;
+            padding: 25px 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            font-size: 26px;
+            color: #4a3f35;
+            margin-bottom: 15px;
+            border-left: 5px solid #d4c4b0;
+            padding-left: 15px;
+            line-height: 1.4;
+        }
+
+        h3 {
+            font-size: 22px;
+            color: #6b5d52;
+            margin: 25px 0 12px;
+            line-height: 1.4;
+        }
+
+        p {
+            margin-bottom: 18px;
+            line-height: 1.7;
+        }
+
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 18px;
+        }
+
+        li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .tip-box, .example-box, .warning-box {
+            border-left: 5px solid #ffc107;
+            padding: 20px 18px;
+            margin: 25px 0;
+            border-radius: 5px;
+        }
+
+        .tip-box {
+            background-color: #fff9e6;
+            border-left-color: #ffc107;
+        }
+
+        .tip-box strong {
+            color: #f57c00;
+            font-size: 21px;
+        }
+
+        .example-box {
+            background-color: #e8f5e9;
+            border-left-color: #4caf50;
+        }
+
+        .example-box strong {
+            font-size: 21px;
+        }
+
+        .warning-box {
+            background-color: #ffebee;
+            border-left-color: #f44336;
+        }
+
+        .warning-box strong {
+            font-size: 21px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .btn {
+            background-color: #4a3f35;
+            color: white;
+            padding: 18px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 20px;
+            text-align: center;
+            display: block;
+            min-height: 56px;
+            line-height: 1.3;
+            transition: background-color 0.3s;
+            font-weight: 500;
+        }
+
+        .btn:active {
+            background-color: #6b5d52;
+        }
+
+        .btn-secondary {
+            background-color: #d4c4b0;
+            color: #4a3f35;
+        }
+
+        .btn-secondary:active {
+            background-color: #c4b4a0;
+        }
+
+        /* Tablet and larger screens */
+        @media (min-width: 768px) {
+            body {
+                font-size: 19px;
+            }
+
+            .container {
+                padding: 35px 25px;
+            }
+
+            header {
+                padding: 30px 25px;
+                margin-bottom: 35px;
+            }
+
+            h1 {
+                font-size: 38px;
+            }
+
+            h2 {
+                font-size: 30px;
+                padding-left: 18px;
+            }
+
+            h3 {
+                font-size: 24px;
+            }
+
+            .content-section {
+                padding: 35px 30px;
+                margin-bottom: 25px;
+            }
+
+            .nav-buttons {
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 20px;
+            }
+
+            .btn {
+                padding: 16px 30px;
+                font-size: 19px;
+            }
+        }
+
+        /* Desktop screens */
+        @media (min-width: 1024px) {
+            body {
+                font-size: 18px;
+            }
+
+            .container {
+                padding: 40px 20px;
+            }
+
+            header {
+                padding: 30px 20px;
+                margin-bottom: 40px;
+            }
+
+            h1 {
+                font-size: 42px;
+            }
+
+            h2 {
+                font-size: 32px;
+                padding-left: 20px;
+            }
+
+            h3 {
+                font-size: 24px;
+            }
+
+            .content-section {
+                padding: 40px;
+                margin-bottom: 30px;
+            }
+
+            .back-link:hover {
+                transform: translateX(-5px);
+            }
+
+            .btn:hover {
+                background-color: #6b5d52;
+            }
+
+            .btn-secondary:hover {
+                background-color: #c4b4a0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="back-link">← 返回课程主页</a>
+            <div class="module-icon">🎥</div>
+            <h1>模块二 (上): 拍摄基础设置</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-section">
+            <h2>课程目标</h2>
+            <p>学完本模块后，你将学会：</p>
+            <ul>
+                <li>掌握手机拍摄的基本设置和技巧</li>
+                <li>学会用自然光拍出诱人的美食画面</li>
+                <li>掌握基本的拍摄手法</li>
+                <li>避免新手常犯的拍摄错误</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>📱 拍摄口诀（记住这个就够了）：</strong>
+                <ul>
+                    <li><strong>拍前准备：</strong>擦镜头、收桌子、看光线</li>
+                    <li><strong>正在拍：</strong>竖屏拍、慢慢移</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>一、拍摄环境类</h2>
+
+            <h3>1. 光线比器材更重要</h3>
+            <p>好的光线能让普通手机拍出专业效果！</p>
+
+            <ul>
+                <li><strong>尽量靠近窗户、自然光拍</strong> - 白天窗边是最佳拍摄地点</li>
+                <li><strong>不要背光</strong> - 人物或菜会变黑，看不清细节</li>
+                <li><strong>不要光线太黄</strong> - 餐厅黄灯要调亮，否则菜品看起来不新鲜</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 简单提亮技巧：</strong>
+                <p>拍菜时可以用另一台手机打开手电筒打侧光，画面立刻变高级！</p>
+            </div>
+
+            <h3>2. 桌面保持干净</h3>
+            <p>客人不会注意，但镜头一定能看到。</p>
+            <ul>
+                <li>拍前擦桌子</li>
+                <li>拍菜时不要出现乱七八糟的餐具</li>
+                <li>背景简洁，主角突出</li>
+            </ul>
+
+            <h3>3. 食物颜色拍真实，不要太暗</h3>
+            <ul>
+                <li>亮度稍微调高一点</li>
+                <li>对比度增强</li>
+                <li>画面更诱人</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>二、手机设置类</h2>
+
+            <h3>1. 清洁镜头（非常重要！）</h3>
+            <div class="warning-box">
+                <strong>⚠️ 最容易忽略的细节：</strong>
+                <p>油渍会让画面模糊，90%的新手都忽略这一点。<br>
+                每次拍摄前用眼镜布或软布擦一下镜头！</p>
+            </div>
+
+            <h3>2. 用 1080P 或 4K 拍（如果手机不卡）</h3>
+            <p>抖音上传后画质会压缩，拍得越清晰越好。</p>
+
+            <div class="example-box">
+                <strong>📗 如何设置：</strong>
+                <ol>
+                    <li>打开手机相机</li>
+                    <li>进入设置</li>
+                    <li>选择视频分辨率</li>
+                    <li>选择 1080P 或 4K（建议1080P，文件不会太大）</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>三、手法类</h2>
+
+            <h3>1. 手机要稳（最重要！）</h3>
+            <p><strong>新手最大的问题就是：手抖</strong></p>
+
+            <div class="tip-box">
+                <strong>💡 稳定拍摄的方法：</strong>
+                <ul>
+                    <li>双手握住手机</li>
+                    <li>手臂贴在身体两侧</li>
+                    <li>手机靠近桌边支撑</li>
+                    <li>如果要移动镜头：动作<strong>慢、稳、平</strong></li>
+                </ul>
+            </div>
+
+            <h3>2. 多拍近景（特写）</h3>
+            <p><strong>拍食物 = 越近越好</strong></p>
+
+            <div class="example-box">
+                <strong>📗 必拍的美食瞬间：</strong>
+                <ul>
+                    <li>刀切开瞬间</li>
+                    <li>冒热气</li>
+                    <li>流汁、拉丝</li>
+                </ul>
+                <p><strong>远景观众不会有食欲，一定要拍近！</strong></p>
+            </div>
+
+            <h3>3. 拍同一画面多角度</h3>
+            <p>比如拍一道招牌菜：</p>
+            <ul>
+                <li>正上方拍</li>
+                <li>侧面拍</li>
+                <li>45°拍</li>
+                <li>切开时拍</li>
+            </ul>
+            <p>这样剪辑时选择多，不用重拍。</p>
+
+            <h3>4. 每个镜头保持 3–5 秒就好</h3>
+            <p>不要一个镜头拍太久，后期剪辑更灵活。</p>
+
+            <h3>5. 动作慢一点，镜头平移顺一点</h3>
+            <div class="warning-box">
+                <strong>⚠️ 新手最大误区：</strong>
+                <ul>
+                    <li>手太抖</li>
+                    <li>移动太快</li>
+                </ul>
+                <p><strong>记住：越慢越稳，越专业！</strong></p>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="module1-creative-logic.html" class="btn btn-secondary">← 上一模块: 创作逻辑</a>
+            <a href="module2-shooting-tips-part2.html" class="btn">下一节: 拍摄运镜技巧 →</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>剪映操作教学 - 餐厅宣传视频课程</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+            background-color: #f5f0eb;
+            color: #4a3f35;
+            line-height: 1.8;
+            font-size: 20px;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px 15px;
+        }
+
+        header {
+            background-color: #d4c4b0;
+            padding: 25px 15px;
+            margin-bottom: 25px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 15px;
+            color: #4a3f35;
+            text-decoration: none;
+            font-size: 22px;
+            padding: 10px 15px;
+            min-height: 44px;
+            transition: transform 0.2s;
+        }
+
+        .back-link:active {
+            transform: translateX(-5px);
+            background-color: rgba(0,0,0,0.05);
+            border-radius: 5px;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #4a3f35;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .module-icon {
+            font-size: 56px;
+            margin-bottom: 15px;
+        }
+
+        .content-section {
+            background-color: white;
+            padding: 25px 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            font-size: 26px;
+            color: #4a3f35;
+            margin-bottom: 15px;
+            border-left: 5px solid #d4c4b0;
+            padding-left: 15px;
+            line-height: 1.4;
+        }
+
+        h3 {
+            font-size: 22px;
+            color: #6b5d52;
+            margin: 25px 0 12px;
+            line-height: 1.4;
+        }
+
+        p {
+            margin-bottom: 18px;
+            line-height: 1.7;
+        }
+
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 18px;
+        }
+
+        li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .tip-box, .step-box, .exercise-box {
+            border-left: 5px solid #ffc107;
+            padding: 20px 18px;
+            margin: 25px 0;
+            border-radius: 5px;
+        }
+
+        .tip-box {
+            background-color: #fff9e6;
+            border-left-color: #ffc107;
+        }
+
+        .tip-box strong {
+            color: #f57c00;
+            font-size: 21px;
+        }
+
+        .step-box {
+            background-color: #e8f5e9;
+            border-left-color: #4caf50;
+        }
+
+        .step-box strong {
+            font-size: 21px;
+        }
+
+        .exercise-box {
+            background-color: #e3f2fd;
+            border-left-color: #2196f3;
+        }
+
+        .exercise-box strong {
+            font-size: 21px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .feature-card {
+            background-color: #f8f8f8;
+            padding: 20px 18px;
+            border-radius: 8px;
+            border: 2px solid #d4c4b0;
+        }
+
+        .feature-card h4 {
+            color: #4a3f35;
+            margin-bottom: 10px;
+            font-size: 21px;
+            line-height: 1.4;
+        }
+
+        .feature-card p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* Image responsive styling */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Video link styling */
+        a[href*="bilibili"] {
+            display: inline-block;
+            background-color: #0288d1;
+            color: white !important;
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-decoration: none !important;
+            margin: 15px 0;
+            transition: background-color 0.3s;
+            font-size: 18px;
+            line-height: 1.5;
+            word-break: break-all;
+        }
+
+        a[href*="bilibili"]:active {
+            background-color: #0277bd;
+        }
+
+        .nav-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .btn {
+            background-color: #4a3f35;
+            color: white;
+            padding: 18px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 20px;
+            text-align: center;
+            display: block;
+            min-height: 56px;
+            line-height: 1.3;
+            transition: background-color 0.3s;
+            font-weight: 500;
+        }
+
+        .btn:active {
+            background-color: #6b5d52;
+        }
+
+        .btn-secondary {
+            background-color: #d4c4b0;
+            color: #4a3f35;
+        }
+
+        .btn-secondary:active {
+            background-color: #c4b4a0;
+        }
+
+        /* Tablet and larger screens */
+        @media (min-width: 768px) {
+            body {
+                font-size: 19px;
+            }
+
+            .container {
+                padding: 35px 25px;
+            }
+
+            header {
+                padding: 30px 25px;
+                margin-bottom: 35px;
+            }
+
+            h1 {
+                font-size: 38px;
+            }
+
+            h2 {
+                font-size: 30px;
+                padding-left: 18px;
+            }
+
+            h3 {
+                font-size: 24px;
+            }
+
+            .content-section {
+                padding: 35px 30px;
+                margin-bottom: 25px;
+            }
+
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .nav-buttons {
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 20px;
+            }
+
+            .btn {
+                padding: 16px 30px;
+                font-size: 19px;
+            }
+
+            a[href*="bilibili"] {
+                font-size: 19px;
+                padding: 16px 25px;
+            }
+        }
+
+        /* Desktop screens */
+        @media (min-width: 1024px) {
+            body {
+                font-size: 18px;
+            }
+
+            .container {
+                padding: 40px 20px;
+            }
+
+            header {
+                padding: 30px 20px;
+                margin-bottom: 40px;
+            }
+
+            h1 {
+                font-size: 42px;
+            }
+
+            h2 {
+                font-size: 32px;
+                padding-left: 20px;
+            }
+
+            h3 {
+                font-size: 24px;
+            }
+
+            .content-section {
+                padding: 40px;
+                margin-bottom: 30px;
+            }
+
+            .feature-card h4 {
+                font-size: 20px;
+            }
+
+            .back-link:hover {
+                transform: translateX(-5px);
+            }
+
+            .btn:hover {
+                background-color: #6b5d52;
+            }
+
+            .btn-secondary:hover {
+                background-color: #c4b4a0;
+            }
+
+            a[href*="bilibili"]:hover {
+                background-color: #0277bd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="back-link">← 返回课程主页</a>
+            <div class="module-icon">✂️</div>
+            <h1>模块三: 剪映操作教学</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-section" style="background-color: #fff3e0; border-left: 5px solid #ff9800;">
+            <h2 style="color: #e65100; border-left: none; padding-left: 0;">⚠️ 重要提示</h2>
+            <p><strong>手机版剪映的功能和模板都比平板电脑上的要齐全</strong>，所以有一些视频教程里面的功能，在平板上可能没有。</p>
+            <p><strong>但没有关系</strong>，主要是有一定的更新频率，介绍菜品和环境就可以了，视频不用完美。 </p>
+            <p>先试试用素材拼凑在一起让AI成片 有大体结构之后 再根据视频教程学习手动剪辑来调整内容。</p>
+        </div>
+
+        <div class="content-section">
+            <h2>课程目标</h2>
+            <p>学完本模块后，你将学会：</p>
+            <ul>
+                <li>掌握剪映的基本操作流程</li>
+                 <li>上手AI剪辑</li>
+                <li>学会添加音乐、文字和特效</li>
+                <li>导出并发布你的视频作品</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>1. 认识剪映 (CapCut)</h2>
+
+            <div style="text-align: center; margin: 30px 0;">
+                <img src="jianying.jpg" alt="剪映 App" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+            </div>
+
+            <p><strong>剪映</strong>是一款非常适合新手的免费视频剪辑软件，专门为抖音视频设计。</p>
+
+
+        </div>
+
+        <div class="content-section">
+            <h2>2. AI剪辑与成片</h2>
+
+            <h3>什么是AI剪辑？（“一键成片”）</h3>
+            <p>一键成片是剪映提供的智能剪辑功能，可以帮助你快速生成视频，特别适合新手和没有太多时间的餐厅老板。</p>
+
+            <div class="tip-box">
+                <strong>💡 一键成片的优势：</strong>
+                <ul>
+                    <li>节省时间：几分钟就能完成一条视频</li>
+                    <li>自动配乐：AI会帮你选择合适的背景音乐</li>
+                    <li>智能剪辑：自动删除多余镜头，保留精彩部分</li>
+                </ul>
+            </div>
+
+            <h3>如何使用一键成片？</h3>
+
+            <div style="text-align: center; margin: 30px 0;">
+                <img src="deepseek.png" alt="AI剪辑操作示例" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            </div>
+
+             <div class="warning-box">
+                <strong>⚠️ 注意：</strong>
+                <p>AI生成的视频可能不完全符合你的想法，你可以在生成后保存，在<strong>本地草稿</strong>的<strong>模板</strong>中找到刚刚生成的视频，进行微调</p>
+            </div>
+
+
+            <h3>AI成片后的调整</h3>
+
+            <p>进入精简的剪辑界面，<strong>常见调整项目：</strong></p>
+            <ul>
+                <li><strong>更换模板：</strong>点击"更多"，选择更适合的视频模板</li>
+                <li><strong>调整文字：</strong>点击文字，修改内容、字体、颜色</li>
+                <li><strong>视频修改：</strong>如果有不想要的镜头，可以点击视频直接删除或者替换</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 小技巧：</strong>
+                <p>AI成片可以作为起点，你可以在AI生成的基础上进行个性化调整，这样既节省时间，又能保证质量。</p>
+               <p>平时用AI快速成片保持更新频率，重要节日或活动时用手动剪辑做精品视频。两种方式结合使用效果最好！</p>
+           
+            </div>
+        
+        <div class="nav-buttons">
+            <a href="module2-shooting-tips-part2.html" class="btn btn-secondary">← 上一模块: 拍摄技巧</a>
+            <a href="module3-ai-editing.html" class="btn">下一节: 剪映功能学习 →</a>
+        </div>
+    </div>
+
+</body>
+</html>

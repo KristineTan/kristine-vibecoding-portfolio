@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视频拍摄注意事项 - 餐厅宣传视频课程</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+            background-color: #f5f0eb;
+            color: #4a3f35;
+            line-height: 1.8;
+            font-size: 20px;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px 15px;
+        }
+
+        header {
+            background-color: #d4c4b0;
+            padding: 25px 15px;
+            margin-bottom: 25px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 15px;
+            color: #4a3f35;
+            text-decoration: none;
+            font-size: 22px;
+            padding: 10px 15px;
+            min-height: 44px;
+            transition: transform 0.2s;
+        }
+
+        .back-link:active {
+            transform: translateX(-5px);
+            background-color: rgba(0,0,0,0.05);
+            border-radius: 5px;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #4a3f35;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .module-icon {
+            font-size: 56px;
+            margin-bottom: 15px;
+        }
+
+        .content-section {
+            background-color: white;
+            padding: 25px 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            font-size: 26px;
+            color: #4a3f35;
+            margin-bottom: 15px;
+            border-left: 5px solid #d4c4b0;
+            padding-left: 15px;
+            line-height: 1.4;
+        }
+
+        h3 {
+            font-size: 22px;
+            color: #6b5d52;
+            margin: 25px 0 12px;
+            line-height: 1.4;
+        }
+
+        p {
+            margin-bottom: 18px;
+            line-height: 1.7;
+        }
+
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 18px;
+        }
+
+        li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .tip-box, .example-box, .warning-box {
+            border-left: 5px solid #ffc107;
+            padding: 20px 18px;
+            margin: 25px 0;
+            border-radius: 5px;
+        }
+
+        .tip-box {
+            background-color: #fff9e6;
+            border-left-color: #ffc107;
+        }
+
+        .tip-box strong {
+            color: #f57c00;
+            font-size: 21px;
+        }
+
+        .example-box {
+            background-color: #e8f5e9;
+            border-left-color: #4caf50;
+        }
+
+        .example-box strong {
+            font-size: 21px;
+        }
+
+        .warning-box {
+            background-color: #ffebee;
+            border-left-color: #f44336;
+        }
+
+        .warning-box strong {
+            font-size: 21px;
+        }
+
+        .checklist {
+            background-color: #f3e5f5;
+            padding: 22px 18px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .checklist h3 {
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .checklist li {
+            list-style-type: none;
+            line-height: 1.6;
+        }
+
+        .checklist li:before {
+            content: "☐ ";
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .btn {
+            background-color: #4a3f35;
+            color: white;
+            padding: 18px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 20px;
+            text-align: center;
+            display: block;
+            min-height: 56px;
+            line-height: 1.3;
+            transition: background-color 0.3s;
+            font-weight: 500;
+        }
+
+        .btn:active {
+            background-color: #6b5d52;
+        }
+
+        .btn-secondary {
+            background-color: #d4c4b0;
+            color: #4a3f35;
+        }
+
+        .btn-secondary:active {
+            background-color: #c4b4a0;
+        }
+
+        /* Tablet and larger screens */
+        @media (min-width: 768px) {
+            body {
+                font-size: 19px;
+            }
+
+            .container {
+                padding: 35px 25px;
+            }
+
+            header {
+                padding: 30px 25px;
+                margin-bottom: 35px;
+            }
+
+            h1 {
+                font-size: 38px;
+            }
+
+            h2 {
+                font-size: 30px;
+                padding-left: 18px;
+            }
+
+            h3 {
+                font-size: 24px;
+            }
+
+            .content-section {
+                padding: 35px 30px;
+                margin-bottom: 25px;
+            }
+
+            .nav-buttons {
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 20px;
+            }
+
+            .btn {
+                padding: 16px 30px;
+                font-size: 19px;
+            }
+
+            .checklist {
+                padding: 25px;
+            }
+        }
+
+        /* Desktop screens */
+        @media (min-width: 1024px) {
+            body {
+                font-size: 18px;
+            }
+
+            .container {
+                padding: 40px 20px;
+            }
+
+            header {
+                padding: 30px 20px;
+                margin-bottom: 40px;
+            }
+
+            h1 {
+                font-size: 42px;
+            }
+
+            h2 {
+                font-size: 32px;
+                padding-left: 20px;
+            }
+
+            h3 {
+                font-size: 24px;
+            }
+
+            .content-section {
+                padding: 40px;
+                margin-bottom: 30px;
+            }
+
+            .back-link:hover {
+                transform: translateX(-5px);
+            }
+
+            .btn:hover {
+                background-color: #6b5d52;
+            }
+
+            .btn-secondary:hover {
+                background-color: #c4b4a0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="back-link">← 返回课程主页</a>
+            <div class="module-icon">🎥</div>
+            <h1>模块二: 视频拍摄注意事项</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-section">
+            <h2>课程目标</h2>
+            <p>学完本模块后，你将学会：</p>
+            <ul>
+                <li>掌握手机拍摄的基本设置和技巧</li>
+                <li>学会用自然光拍出诱人的美食画面</li>
+                <li>掌握5种实用的拍摄运镜方法</li>
+                <li>避免新手常犯的拍摄错误</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>📱 拍摄口诀（记住这个就够了）：</strong>
+                <ul>
+                    <li><strong>拍前准备：</strong>擦镜头、收桌子、看光线</li>
+                    <li><strong>正在拍：</strong>竖屏拍、慢慢移</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>一、拍摄环境类</h2>
+
+            <h3>1. 光线比器材更重要</h3>
+            <p>好的光线能让普通手机拍出专业效果！</p>
+
+            <ul>
+                <li><strong>尽量靠近窗户、自然光拍</strong> - 白天窗边是最佳拍摄地点</li>
+                <li><strong>不要背光</strong> - 人物或菜会变黑，看不清细节</li>
+                <li><strong>不要光线太黄</strong> - 餐厅黄灯要调亮，否则菜品看起来不新鲜</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 简单提亮技巧：</strong>
+                <p>拍菜时可以用另一台手机打开手电筒打侧光，画面立刻变高级！</p>
+            </div>
+
+            <h3>2. 桌面保持干净</h3>
+            <p>客人不会注意，但镜头一定能看到。</p>
+            <ul>
+                <li>拍前擦桌子</li>
+                <li>拍菜时不要出现乱七八糟的餐具</li>
+                <li>背景简洁，主角突出</li>
+            </ul>
+
+            <h3>3. 食物颜色拍真实，不要太暗</h3>
+            <ul>
+                <li>亮度稍微调高一点</li>
+                <li>对比度增强</li>
+                <li>画面更诱人</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>二、手机设置类</h2>
+
+            <h3>1. 清洁镜头（非常重要！）</h3>
+            <div class="warning-box">
+                <strong>⚠️ 最容易忽略的细节：</strong>
+                <p>油渍会让画面模糊，90%的新手都忽略这一点。<br>
+                每次拍摄前用眼镜布或软布擦一下镜头！</p>
+            </div>
+
+            <h3>2. 用 1080P 或 4K 拍（如果手机不卡）</h3>
+            <p>抖音上传后画质会压缩，拍得越清晰越好。</p>
+
+            <div class="example-box">
+                <strong>📗 如何设置：</strong>
+                <ol>
+                    <li>打开手机相机</li>
+                    <li>进入设置</li>
+                    <li>选择视频分辨率</li>
+                    <li>选择 1080P 或 4K（建议1080P，文件不会太大）</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>三、手法类</h2>
+
+            <h3>1. 手机要稳（最重要！）</h3>
+            <p><strong>新手最大的问题就是：手抖</strong></p>
+
+            <div class="tip-box">
+                <strong>💡 稳定拍摄的方法：</strong>
+                <ul>
+                    <li>双手握住手机</li>
+                    <li>手臂贴在身体两侧</li>
+                    <li>手机靠近桌边支撑</li>
+                    <li>如果要移动镜头：动作<strong>慢、稳、平</strong></li>
+                </ul>
+            </div>
+
+            <h3>2. 多拍近景（特写）</h3>
+            <p><strong>拍食物 = 越近越好</strong></p>
+
+            <div class="example-box">
+                <strong>📗 必拍的美食瞬间：</strong>
+                <ul>
+                    <li>刀切开瞬间</li>
+                    <li>冒热气</li>
+                    <li>流汁、拉丝</li>
+                </ul>
+                <p><strong>远景观众不会有食欲，一定要拍近！</strong></p>
+            </div>
+
+            <h3>3. 拍同一画面多角度</h3>
+            <p>比如拍一道招牌菜：</p>
+            <ul>
+                <li>正上方拍</li>
+                <li>侧面拍</li>
+                <li>45°拍</li>
+                <li>切开时拍</li>
+            </ul>
+            <p>这样剪辑时选择多，不用重拍。</p>
+
+            <h3>4. 每个镜头保持 3–5 秒就好</h3>
+            <p>不要一个镜头拍太久，后期剪辑更灵活。</p>
+
+            <h3>5. 动作慢一点，镜头平移顺一点</h3>
+            <div class="warning-box">
+                <strong>⚠️ 新手最大误区：</strong>
+                <ul>
+                    <li>手太抖</li>
+                    <li>移动太快</li>
+                </ul>
+                <p><strong>记住：越慢越稳，越专业！</strong></p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>四、五种新手必会的拍摄运镜</h2>
+            <p>够用且不踩坑！</p>
+
+            <h3>1️⃣ 定点拍（最重要）—— 不动，就是稳</h3>
+            <div class="example-box">
+                <strong>📗 适用场景：</strong>菜品、摆盘、环境
+                <p><strong>做法：</strong></p>
+                <ul>
+                    <li>双手稳住</li>
+                    <li>不移动手机</li>
+                    <li>拍 3–5 秒</li>
+                </ul>
+                <p><strong>💡 新手70%的画面都应该用这个！</strong></p>
+            </div>
+
+            <h3>2️⃣ 轻轻平移（左右移动）—— 拍桌面或长条型菜</h3>
+            <div class="example-box">
+                <strong>📗 适用场景：</strong>一桌菜、长盘子、摆盘展示
+                <p><strong>做法：</strong></p>
+                <ul>
+                    <li>轻轻从左往右 或 右往左</li>
+                    <li>动作越慢越好</li>
+                    <li>不要抖</li>
+                </ul>
+                <p><strong>💡 记住：动得越慢，看起来越专业。</strong></p>
+            </div>
+
+            <h3>3️⃣ 上下慢扫—— 拍饮品、堆叠感强的菜品</h3>
+            <div class="example-box">
+                <strong>📗 适用场景：</strong>高杯饮料、双层汉堡、烤肉堆叠
+                <p><strong>做法：</strong></p>
+                <ul>
+                    <li>从下往上 或 从上往下</li>
+                    <li>稳、慢</li>
+                    <li>只需要扫 3–4 秒，不用很长</li>
+                </ul>
+            </div>
+
+            <h3>4️⃣ 推拉（靠近一点）—— 突出细节</h3>
+            <div class="example-box">
+                <strong>📗 适用场景：</strong>拉丝、冒烟、汤汁流动
+                <p><strong>做法：</strong></p>
+                <ul>
+                    <li>从稍远 → 慢慢靠近</li>
+                    <li>或 从近 → 慢慢拉远</li>
+                    <li>推近时要特别稳，才能高级</li>
+                </ul>
+            </div>
+
+            <h3>5️⃣ 跟随动作（跟着厨师或服务员的手）</h3>
+            <div class="example-box">
+                <strong>📗 适用场景：</strong>切、撒料、上菜、浇汁
+                <p><strong>做法：</strong></p>
+                <ul>
+                    <li>手机跟着动作一起移动</li>
+                    <li>动作小、保持距离不变</li>
+                    <li>要慢，不要忙乱</li>
+                </ul>
+                <p><strong>💡 这是"动态美食"的关键！</strong></p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>五、食物类（餐饮特别重要）</h2>
+
+            <h3>1. 出锅、上桌、切开 → 必拍</h3>
+            <p>这是最吸引人的瞬间，一定不要错过！</p>
+
+            <h3>2. 热菜一定要拍"热气"</h3>
+            <div class="tip-box">
+                <strong>💡 小技巧：</strong>
+                <ul>
+                    <li>可以关掉空调</li>
+                    <li>靠近拍</li>
+                    <li>画面立刻加分</li>
+                </ul>
+            </div>
+
+            <h3>3. 拍冷饮要有"水珠感"</h3>
+            <p>快速喷一点点水，让杯子看起来冰爽。</p>
+
+            <h3>4. 拍摆盘时多旋转盘子</h3>
+            <p>餐厅灯光常有反光点，转一下就找到最佳角度。</p>
+        </div>
+
+        <div class="content-section">
+            <h2>六、人物类</h2>
+
+            <h3>1. 避免正脸拍顾客（隐私问题）</h3>
+            <p>只拍：</p>
+            <ul>
+                <li>手</li>
+                <li>侧脸</li>
+                <li>背影</li>
+                <li>吃的动作</li>
+            </ul>
+            <p><strong>更自然，也更安全。</strong></p>
+
+            <h3>2. 老板/员工出镜要说短句</h3>
+            <div class="example-box">
+                <strong>📗 例如：</strong>
+                <ul>
+                    <li>"我们今天新出了××"</li>
+                    <li>"这道菜是我们店最受欢迎的"</li>
+                </ul>
+                <p><strong>越自然越好，不要念稿。</strong></p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>七、素材储备类（长期运营必备）</h2>
+
+            <h3>1. 拍多不拍少</h3>
+            <p>每天都随手拍 5–10 条素材，积累起来慢慢用。</p>
+
+            <h3>2. 竖屏拍（抖音必须）</h3>
+            <p>抖音是竖屏平台，一定要竖着拍！</p>
+
+            <h3>3. 拍原声，也拍纯画面</h3>
+            <ul>
+                <li>有时需要真实声音（炒菜声、切菜声）</li>
+                <li>有时只要BGM</li>
+                <li>两种都拍，剪辑时更灵活</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>八、不可踩的坑</h2>
+
+            <div class="warning-box">
+                <strong>⚠️ 这些错误一定要避免：</strong>
+                <ul>
+                    <li>❌ 手抖</li>
+                    <li>❌ 光线太暗</li>
+                    <li>❌ 背对着灯拍</li>
+                    <li>❌ 镜头油污</li>
+                    <li>❌ 一镜到底拍太久</li>
+                    <li>❌ 音量爆音（靠太近）</li>
+                    <li>❌ 桌子脏、背景乱</li>
+                    <li>❌ 食物拍太远</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>九、拍摄前检查清单</h2>
+
+            <div class="checklist">
+                <h3>✓ 按下录制键之前，检查这些：</h3>
+                <ul>
+                    <li>擦干净镜头了吗？</li>
+                    <li>光线够亮吗？</li>
+                    <li>桌面干净吗？</li>
+                    <li>背景整洁吗？</li>
+                    <li>手机是竖屏吗？</li>
+                    <li>手机稳吗？</li>
+                    <li>存储空间够吗？</li>
+                    <li>手机静音了吗？</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>总结</h2>
+            <p>记住这几个要点：</p>
+            <ul>
+                <li>✅ <strong>稳</strong> - 双手握稳，慢慢移动</li>
+                <li>✅ <strong>近</strong> - 拍食物要靠近，拍细节</li>
+                <li>✅ <strong>亮</strong> - 光线充足，食物才诱人</li>
+                <li>✅ <strong>净</strong> - 桌面、背景保持整洁</li>
+                <li>✅ <strong>多</strong> - 多角度拍，剪辑时有选择</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 下一步：</strong> 掌握了拍摄技巧后，接下来我们将学习如何用剪映把这些素材剪成吸引人的视频！
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="module1-creative-logic.html" class="btn btn-secondary">← 上一模块: 创作逻辑</a>
+            <a href="module3-editing-tutorial.html" class="btn">下一模块: 剪映教学 →</a>
+        </div>
+    </div>
+</body>
+</html>

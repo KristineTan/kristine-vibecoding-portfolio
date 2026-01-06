@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抖音运营教学 - 餐厅宣传视频课程</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+            background-color: #f5f0eb;
+            color: #4a3f35;
+            line-height: 1.8;
+            font-size: 20px;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px 15px;
+        }
+
+        header {
+            background-color: #d4c4b0;
+            padding: 25px 15px;
+            margin-bottom: 25px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 15px;
+            color: #4a3f35;
+            text-decoration: none;
+            font-size: 22px;
+            padding: 10px 15px;
+            min-height: 44px;
+            transition: transform 0.2s;
+        }
+
+        .back-link:active {
+            transform: translateX(-5px);
+            background-color: rgba(0,0,0,0.05);
+            border-radius: 5px;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #4a3f35;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .module-icon {
+            font-size: 56px;
+            margin-bottom: 15px;
+        }
+
+        .content-section {
+            background-color: white;
+            padding: 25px 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            font-size: 26px;
+            color: #4a3f35;
+            margin-bottom: 15px;
+            border-left: 5px solid #d4c4b0;
+            padding-left: 15px;
+            line-height: 1.4;
+        }
+
+        h3 {
+            font-size: 22px;
+            color: #6b5d52;
+            margin: 25px 0 12px;
+            line-height: 1.4;
+        }
+
+        p {
+            margin-bottom: 18px;
+            line-height: 1.7;
+        }
+
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 18px;
+        }
+
+        li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .tip-box, .step-box, .warning-box, .best-practice {
+            border-left: 5px solid #ffc107;
+            padding: 20px 18px;
+            margin: 25px 0;
+            border-radius: 5px;
+        }
+
+        .tip-box {
+            background-color: #fff9e6;
+            border-left-color: #ffc107;
+        }
+
+        .tip-box strong {
+            color: #f57c00;
+            font-size: 21px;
+        }
+
+        .step-box {
+            background-color: #e8f5e9;
+            border-left-color: #4caf50;
+        }
+
+        .step-box strong {
+            font-size: 21px;
+        }
+
+        .warning-box {
+            background-color: #ffebee;
+            border-left-color: #f44336;
+        }
+
+        .warning-box strong {
+            font-size: 21px;
+        }
+
+        .best-practice {
+            background-color: #e1f5fe;
+            border-left-color: #0288d1;
+        }
+
+        .best-practice strong {
+            font-size: 21px;
+        }
+
+        .checklist {
+            background-color: #f3e5f5;
+            padding: 22px 18px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .checklist h3 {
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .checklist li {
+            list-style-type: none;
+            line-height: 1.6;
+        }
+
+        .checklist li:before {
+            content: "☐ ";
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .hashtag-box {
+            background-color: #fce4ec;
+            padding: 22px 18px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .hashtag-box h3 {
+            font-size: 22px;
+            line-height: 1.4;
+        }
+
+        .nav-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .btn {
+            background-color: #4a3f35;
+            color: white;
+            padding: 18px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 20px;
+            text-align: center;
+            display: block;
+            min-height: 56px;
+            line-height: 1.3;
+            transition: background-color 0.3s;
+            font-weight: 500;
+        }
+
+        .btn:active {
+            background-color: #6b5d52;
+        }
+
+        .btn-secondary {
+            background-color: #d4c4b0;
+            color: #4a3f35;
+        }
+
+        .btn-secondary:active {
+            background-color: #c4b4a0;
+        }
+
+        /* Tablet and larger screens */
+        @media (min-width: 768px) {
+            body {
+                font-size: 19px;
+            }
+
+            .container {
+                padding: 35px 25px;
+            }
+
+            header {
+                padding: 30px 25px;
+                margin-bottom: 35px;
+            }
+
+            h1 {
+                font-size: 38px;
+            }
+
+            h2 {
+                font-size: 30px;
+                padding-left: 18px;
+            }
+
+            h3 {
+                font-size: 24px;
+            }
+
+            .content-section {
+                padding: 35px 30px;
+                margin-bottom: 25px;
+            }
+
+            .nav-buttons {
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 20px;
+            }
+
+            .btn {
+                padding: 16px 30px;
+                font-size: 19px;
+            }
+
+            .checklist, .hashtag-box {
+                padding: 25px;
+            }
+        }
+
+        /* Desktop screens */
+        @media (min-width: 1024px) {
+            body {
+                font-size: 18px;
+            }
+
+            .container {
+                padding: 40px 20px;
+            }
+
+            header {
+                padding: 30px 20px;
+                margin-bottom: 40px;
+            }
+
+            h1 {
+                font-size: 42px;
+            }
+
+            h2 {
+                font-size: 32px;
+                padding-left: 20px;
+            }
+
+            h3 {
+                font-size: 24px;
+            }
+
+            .content-section {
+                padding: 40px;
+                margin-bottom: 30px;
+            }
+
+            .back-link:hover {
+                transform: translateX(-5px);
+            }
+
+            .btn:hover {
+                background-color: #6b5d52;
+            }
+
+            .btn-secondary:hover {
+                background-color: #c4b4a0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="back-link">← 返回课程主页</a>
+            <div class="module-icon">📊</div>
+            <h1>模块四: 抖音运营教学</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-section">
+            <h2>一、账号定位（核心策略）</h2>
+
+            <h3>账号名称设定</h3>
+            <p><strong>山海荟·陵水酸汤海鲜</strong></p>
+            <p>（清晰体现地域+特色）</p>
+
+            <h3>人设定位</h3>
+            <ul>
+                <li>海南×贵州风味探索者</li>
+                <li>海鲜创意主理人</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 为什么这样定位？</strong>
+                <p>账号名称直接告诉观众：这是一家结合海南陵水和贵州酸汤的特色海鲜餐厅。人设定位突出创新融合的特点，让人记忆深刻。</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>二、内容创作（每日/每周计划）</h2>
+
+            <h3>必拍内容类型</h3>
+
+            <div class="step-box">
+                <strong>🎬 四种核心内容：</strong>
+                <ol>
+                    <li><strong>菜品展示（60秒内）：</strong>特写酸汤锅底+鲜活海鲜入锅过程</li>
+                    <li><strong>制作揭秘（30秒）：</strong>贵州酸汤底料+海南海鲜的特色融合过程</li>
+                    <li><strong>顾客反应（15秒）：</strong>顾客品尝时的真实表情和评价</li>
+                    <li><strong>食材溯源（30秒）：</strong>展示当日到店的海鲜/特色食材</li>
+                </ol>
+            </div>
+
+            <div class="tip-box">
+                <strong>💡 内容创作小贴士：</strong>
+                <p>每种内容类型轮流拍摄，保持账号内容多样性。一周至少发布3-4条视频，持续曝光才能积累粉丝。</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>热门话题结合</h2>
+
+            <h3>如何找到合适的话题标签？</h3>
+            <div class="step-box">
+                <strong>📱 操作步骤：</strong>
+                <ol>
+                    <li>先看抖音热门话题</li>
+                    <li>如果有合适的，直接按"#"键</li>
+                    <li>输入刚刚看到的词汇</li>
+                    <li>列表会弹出一些相关词</li>
+                    <li>选择热度最高的</li>
+                </ol>
+            </div>
+
+            <div class="hashtag-box">
+                <h3>🏷️ 常用话题库（保存到手机备忘录）</h3>
+
+                <p><strong>地域标签：</strong></p>
+                <ul>
+                    <li>#海南旅游攻略</li>
+                    <li>#海南美食</li>
+                    <li>#陵水美食</li>
+                </ul>
+
+                <p><strong>菜品特色标签：</strong></p>
+                <ul>
+                    <li>#酸汤海鲜</li>
+                    <li>#融合菜</li>
+                    <li>#贵州酸汤鱼</li>
+                    <li>#粤菜海鲜</li>
+                    <li>#生猛海鲜</li>
+                    <li>#海鲜的N种吃法</li>
+                    <li>#融合菜创意</li>
+                    <li>#地方美食创新</li>
+                </ul>
+
+                <p><strong>通用美食标签：</strong></p>
+                <ul>
+                    <li>#美食探店</li>
+                    <li>#抖音美食推荐官</li>
+                    <li>#好吃不贵</li>
+                    <li>#本地人推荐</li>
+                    <li>#接地气美食</li>
+                </ul>
+            </div>
+
+            <div class="tip-box">
+                <strong>💡 使用建议：</strong>
+                <p>每条视频使用3-5个话题标签。一定要包含：1个地域标签 + 1-2个菜品特色标签 + 1-2个通用标签。这样能最大化曝光。</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>三、流量获取技巧</h2>
+
+            <h3>📅 发布时间</h3>
+            <div class="best-practice">
+                <strong>⏰ 最佳发布时间：</strong>
+                <ul>
+                    <li><strong>工作日：</strong>11:00-13:00（午餐时间）</li>
+                    <li><strong>工作日：</strong>17:00-19:00（晚餐时间）</li>
+                    <li><strong>周末：</strong>全天覆盖（特别是10:00-20:00）</li>
+                </ul>
+            </div>
+
+            <h3>📍 地理位置标签</h3>
+            <div class="warning-box">
+                <strong>⚠️ 非常重要：</strong>
+                <p>每条视频<strong>必须</strong>添加店铺位置标签！这样附近的人更容易看到你的视频，增加到店率。</p>
+            </div>
+
+            <h3>🎵 热门音乐</h3>
+            <p>使用抖音美食类热门BGM，增加曝光。在发布视频时选择"添加音乐"，搜索"美食"或直接选择热门音乐榜单中的曲目。</p>
+
+            <h3>💬 互动引导</h3>
+            <div class="step-box">
+                <strong>🎯 视频结尾提问技巧：</strong>
+                <ul>
+                    <li>"你想尝试哪种海鲜配酸汤？"</li>
+                    <li>"评论区告诉我你最爱哪道菜？"</li>
+                    <li>"你觉得海南海鲜和贵州酸汤搭不搭？"</li>
+                    <li>"下次想看什么海鲜的做法？"</li>
+                </ul>
+                <p><strong>为什么要提问？</strong>提问能激发评论，评论越多，视频推荐量越大！</p>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="module3-editing-tutorial.html" class="btn btn-secondary">← 上一模块: 剪映教学</a>
+            <a href="index.html" class="btn">返回课程主页 →</a>
+        </div>
+    </div>
+</body>
+</html>
