@@ -386,8 +386,218 @@ body {
   100% { opacity: 0; transform: translate(-50%, -50%) scale(1) translateY(-30px); }
 }
 
-/* ===== PHASE 3: DECORATE ===== */
+/* ===== PHASE 3: HOUSE ===== */
 #phase3 {
+  justify-content: center;
+  align-items: center;
+}
+.house-ground {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: 30vh;
+  background: linear-gradient(180deg, #a8cce0 0%, #b5d6e8 30%, #c4dff0 60%, #d6eaf5 100%);
+  z-index: 2;
+}
+.house-ground::before {
+  content: '';
+  position: absolute;
+  top: -15px; left: 0; right: 0;
+  height: 30px;
+  background: radial-gradient(ellipse at 15% 50%, #fff 0%, transparent 60%),
+              radial-gradient(ellipse at 45% 50%, #f0f8ff 0%, transparent 50%),
+              radial-gradient(ellipse at 75% 50%, #fff 0%, transparent 60%);
+}
+.house-wrapper {
+  position: fixed;
+  bottom: 22vh;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  z-index: 10;
+  transform-origin: bottom center;
+  cursor: pointer;
+}
+.house-wrapper.house-appear {
+  animation: housePop 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+@keyframes housePop {
+  0%   { transform: translateX(-50%) scale(0); opacity: 0; }
+  70%  { transform: translateX(-50%) scale(1.08); opacity: 1; }
+  100% { transform: translateX(-50%) scale(1); opacity: 1; }
+}
+.house-prompt {
+  position: fixed;
+  bottom: 54vh;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.92);
+  border: 3px solid #8aa8cc;
+  border-radius: 20px;
+  padding: 14px 28px;
+  font-size: 1.3em;
+  color: #2d3a8c;
+  text-align: center;
+  z-index: 20;
+  max-width: 90vw;
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+}
+.house-prompt.visible { opacity: 1; }
+.door-click-hint {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.9em;
+  color: #ff6b9d;
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+  animation: hintPulse 1.2s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes hintPulse {
+  0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+  50% { opacity: 1; transform: translateX(-50%) scale(1.05); }
+}
+
+/* ===== PHASE 4: KITCHEN ===== */
+#phase4 {
+  justify-content: flex-start;
+}
+.kitchen-bg {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(180deg,
+    #fdf0d5 0%,
+    #f5e0b0 42%,
+    #c8a870 42%,
+    #b89560 47%,
+    #6b4f35 47%,
+    #8b6840 100%
+  );
+  z-index: 0;
+}
+.kitchen-header {
+  position: relative;
+  z-index: 10;
+  padding: 18px 20px 10px;
+  text-align: center;
+  font-size: 1.6em;
+  color: #5a3a1a;
+  text-shadow: 0 2px 6px rgba(255,255,255,0.5);
+  font-weight: bold;
+}
+.kitchen-scene-layer {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.kitchen-item-wrap {
+  position: fixed;
+  z-index: 15;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s;
+  pointer-events: none;
+}
+.kitchen-item-wrap:hover { transform: scale(1.1); }
+.kitchen-item-wrap.collected {
+  pointer-events: none;
+  animation: flyToBar 0.5s ease-in forwards;
+}
+@keyframes flyToBar {
+  0%   { opacity: 1; transform: scale(1); }
+  60%  { opacity: 0.5; transform: scale(0.5) translateY(30px); }
+  100% { opacity: 0; transform: scale(0.2) translateY(80px); }
+}
+.kitchen-item-glow {
+  animation: kitchenGlow 1.6s ease-in-out infinite;
+  border-radius: 50%;
+}
+@keyframes kitchenGlow {
+  0%, 100% { filter: drop-shadow(0 0 6px rgba(255, 200, 50, 0.5)); }
+  50%       { filter: drop-shadow(0 0 18px rgba(255, 220, 80, 0.95)); }
+}
+.kitchen-item-label {
+  margin-top: 4px;
+  font-size: 0.8em;
+  font-weight: bold;
+  color: #5a3a1a;
+  text-shadow: 0 1px 3px rgba(255,255,255,0.8);
+  pointer-events: none;
+  text-align: center;
+}
+.kitchen-bar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: 110px;
+  background: linear-gradient(180deg, rgba(60,35,10,0.95), rgba(40,20,5,0.98));
+  border-top: 3px solid rgba(200,160,90,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  z-index: 30;
+  padding: 0 16px;
+  box-shadow: 0 -5px 25px rgba(0,0,0,0.3);
+}
+.k-slot {
+  width: 76px; height: 76px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.08);
+  border: 2px dashed rgba(200,160,90,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s, border-color 0.3s;
+  flex-shrink: 0;
+}
+.k-slot.filled {
+  background: rgba(255,200,80,0.15);
+  border: 2px solid rgba(200,160,50,0.7);
+  animation: slotFill 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+}
+@keyframes slotFill {
+  0%  { transform: scale(0.5); }
+  70% { transform: scale(1.15); }
+  100%{ transform: scale(1); }
+}
+.k-slot svg { width: 52px; height: 52px; }
+.kitchen-count-label {
+  color: rgba(255,220,120,0.9);
+  font-size: 1.1em;
+  font-weight: bold;
+  text-align: center;
+  flex-shrink: 0;
+}
+.go-build-btn {
+  background: linear-gradient(135deg, #ff6b9d, #ff8a65);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 14px 30px;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(255,107,157,0.4);
+  flex-shrink: 0;
+  transition: transform 0.2s;
+  display: none;
+  animation: goBtn 0.5s cubic-bezier(0.175,0.885,0.32,1.275) forwards;
+}
+@keyframes goBtn {
+  0% { transform: scale(0); }
+  70%{ transform: scale(1.1); }
+  100%{ transform: scale(1); }
+}
+.go-build-btn:hover { transform: scale(1.05); }
+
+/* ===== PHASE 5: DECORATE ===== */
+#phase5 {
   justify-content: flex-start;
   padding-top: 10px;
 }
@@ -491,6 +701,21 @@ body {
 }
 .tray-item.dragging {
   opacity: 0.4;
+}
+.tray-item.curvable-hint {
+  position: relative;
+}
+.tray-item.curvable-hint::after {
+  content: 'tap to curve';
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.5em;
+  color: rgba(255, 220, 80, 0.9);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  pointer-events: none;
 }
 
 /* ===== PLACED ITEMS ===== */
@@ -798,8 +1023,156 @@ body {
   <div class="roll-complete-msg" id="rollCompleteMsg"></div>
 </div>
 
-<!-- PHASE 3: DECORATE -->
+<!-- PHASE 3: HOUSE -->
 <div id="phase3" class="phase">
+  <div class="house-ground"></div>
+  <div class="house-prompt" id="housePrompt">🏠 Look! A house!<br>Maybe there are accessories inside...</div>
+  <div class="house-wrapper" id="houseWrapper" onclick="enterKitchen()">
+    <svg width="260" height="230" viewBox="0 0 260 230" xmlns="http://www.w3.org/2000/svg">
+      <!-- Chimney -->
+      <rect x="180" y="30" width="28" height="55" rx="3" fill="#8b5e52" stroke="#7a4f44" stroke-width="1.5"/>
+      <rect x="176" y="28" width="36" height="8" rx="3" fill="#a07060"/>
+      <!-- Smoke -->
+      <circle cx="194" cy="18" r="7" fill="rgba(200,200,200,0.5)" class="smoke-puff"/>
+      <circle cx="200" cy="8" r="5" fill="rgba(200,200,200,0.35)"/>
+      <!-- Roof -->
+      <polygon points="0,100 130,10 260,100" fill="#2d3a8c"/>
+      <polygon points="0,100 130,10 260,100" fill="none" stroke="#1e2a7a" stroke-width="2"/>
+      <!-- Snow on roof -->
+      <path d="M0,100 Q30,88 65,96 Q100,88 130,95 Q160,88 200,94 Q230,88 260,100" fill="white" opacity="0.85"/>
+      <!-- House walls -->
+      <rect x="15" y="98" width="230" height="132" rx="4" fill="#fdf3e3" stroke="#ddd" stroke-width="1.5"/>
+      <!-- Brick lines -->
+      <line x1="15" y1="118" x2="245" y2="118" stroke="#e0cdb0" stroke-width="1" opacity="0.6"/>
+      <line x1="15" y1="138" x2="245" y2="138" stroke="#e0cdb0" stroke-width="1" opacity="0.6"/>
+      <line x1="15" y1="158" x2="245" y2="158" stroke="#e0cdb0" stroke-width="1" opacity="0.6"/>
+      <line x1="15" y1="178" x2="245" y2="178" stroke="#e0cdb0" stroke-width="1" opacity="0.6"/>
+      <!-- Left window -->
+      <rect x="28" y="110" width="58" height="52" rx="5" fill="#87ceeb" stroke="#8b7355" stroke-width="2.5"/>
+      <line x1="57" y1="110" x2="57" y2="162" stroke="#8b7355" stroke-width="2"/>
+      <line x1="28" y1="136" x2="86" y2="136" stroke="#8b7355" stroke-width="2"/>
+      <rect x="28" y="110" width="58" height="52" rx="5" fill="rgba(255,255,200,0.2)"/>
+      <!-- Left window glow -->
+      <rect x="28" y="110" width="58" height="52" rx="5" fill="rgba(255,240,150,0.15)"/>
+      <!-- Curtains left -->
+      <path d="M28,110 Q38,130 28,155 Q25,132 28,110Z" fill="#ffaec9" opacity="0.8"/>
+      <path d="M86,110 Q76,130 86,155 Q89,132 86,110Z" fill="#ffaec9" opacity="0.8"/>
+      <!-- Right window -->
+      <rect x="174" y="110" width="58" height="52" rx="5" fill="#87ceeb" stroke="#8b7355" stroke-width="2.5"/>
+      <line x1="203" y1="110" x2="203" y2="162" stroke="#8b7355" stroke-width="2"/>
+      <line x1="174" y1="136" x2="232" y2="136" stroke="#8b7355" stroke-width="2"/>
+      <rect x="174" y="110" width="58" height="52" rx="5" fill="rgba(255,255,200,0.2)"/>
+      <path d="M174,110 Q184,130 174,155 Q171,132 174,110Z" fill="#ffaec9" opacity="0.8"/>
+      <path d="M232,110 Q222,130 232,155 Q235,132 232,110Z" fill="#ffaec9" opacity="0.8"/>
+      <!-- Door -->
+      <rect x="100" y="148" width="60" height="82" rx="6" fill="#8b5e3c" stroke="#6b4528" stroke-width="2"/>
+      <rect x="104" y="152" width="52" height="74" rx="4" fill="#9b6e4a"/>
+      <!-- Door panel lines -->
+      <rect x="108" y="156" width="44" height="28" rx="3" fill="none" stroke="#7a5030" stroke-width="1.5"/>
+      <rect x="108" y="192" width="44" height="28" rx="3" fill="none" stroke="#7a5030" stroke-width="1.5"/>
+      <!-- Door knob -->
+      <circle cx="152" cy="192" r="5" fill="#d4a820" stroke="#b89010" stroke-width="1.5"/>
+      <!-- Step -->
+      <rect x="88" y="226" width="84" height="12" rx="3" fill="#c8b090" stroke="#b09070" stroke-width="1"/>
+      <!-- Wreath on door -->
+      <circle cx="130" cy="170" r="12" fill="none" stroke="#2e7d32" stroke-width="4"/>
+      <circle cx="130" cy="170" r="8" fill="none" stroke="#388e3c" stroke-width="3"/>
+      <circle cx="130" cy="160" r="3" fill="#e53935"/>
+    </svg>
+    <div class="door-click-hint">👆 Click the door to go inside!</div>
+  </div>
+</div>
+
+<!-- PHASE 4: KITCHEN -->
+<div id="phase4" class="phase">
+  <div class="kitchen-bg"></div>
+
+  <!-- Kitchen scene fixtures -->
+  <svg class="kitchen-scene-layer" viewBox="0 0 400 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <!-- Window frame -->
+    <rect x="130" y="40" width="140" height="100" rx="6" fill="#87ceeb" stroke="#8b7355" stroke-width="3"/>
+    <line x1="200" y1="40" x2="200" y2="140" stroke="#8b7355" stroke-width="2.5"/>
+    <line x1="130" y1="90" x2="270" y2="90" stroke="#8b7355" stroke-width="2.5"/>
+    <rect x="130" y="40" width="140" height="100" rx="6" fill="rgba(255,255,220,0.15)"/>
+    <!-- Curtains -->
+    <path d="M130,40 Q148,80 130,130 Q122,85 130,40Z" fill="#ff8fab" opacity="0.75"/>
+    <path d="M270,40 Q252,80 270,130 Q278,85 270,40Z" fill="#ff8fab" opacity="0.75"/>
+    <!-- Shelf -->
+    <rect x="20" y="195" width="165" height="10" rx="3" fill="#a0784a"/>
+    <rect x="215" y="195" width="165" height="10" rx="3" fill="#a0784a"/>
+    <!-- Shelf brackets -->
+    <rect x="30" y="193" width="6" height="30" rx="2" fill="#8b6535"/>
+    <rect x="170" y="193" width="6" height="30" rx="2" fill="#8b6535"/>
+    <rect x="220" y="193" width="6" height="30" rx="2" fill="#8b6535"/>
+    <rect x="370" y="193" width="6" height="30" rx="2" fill="#8b6535"/>
+    <!-- Counter top edge highlight -->
+    <rect x="0" y="290" width="400" height="8" rx="0" fill="#d4a870" opacity="0.6"/>
+    <!-- Stove on left -->
+    <rect x="15" y="210" width="90" height="80" rx="5" fill="#757575" stroke="#555" stroke-width="1.5"/>
+    <rect x="22" y="218" width="76" height="55" rx="4" fill="#666"/>
+    <circle cx="38" cy="228" r="9" fill="#444"/>
+    <circle cx="38" cy="228" r="5" fill="#333"/>
+    <circle cx="88" cy="228" r="9" fill="#444"/>
+    <circle cx="88" cy="228" r="5" fill="#333"/>
+    <circle cx="38" cy="258" r="9" fill="#444"/>
+    <circle cx="38" cy="258" r="5" fill="#333"/>
+    <circle cx="88" cy="258" r="9" fill="#444"/>
+    <circle cx="88" cy="258" r="5" fill="#333"/>
+    <!-- Fridge right -->
+    <rect x="300" y="155" width="90" height="140" rx="6" fill="#e0e0e0" stroke="#bbb" stroke-width="1.5"/>
+    <line x1="300" y1="238" x2="390" y2="238" stroke="#ccc" stroke-width="2"/>
+    <rect x="320" y="192" width="8" height="40" rx="3" fill="#aaa"/>
+    <rect x="320" y="248" width="8" height="25" rx="3" fill="#aaa"/>
+    <!-- Floor tiles (hint) -->
+    <line x1="0" y1="490" x2="400" y2="490" stroke="rgba(0,0,0,0.08)" stroke-width="1"/>
+    <line x1="0" y1="540" x2="400" y2="540" stroke="rgba(0,0,0,0.08)" stroke-width="1"/>
+    <line x1="80" y1="440" x2="80" y2="590" stroke="rgba(0,0,0,0.06)" stroke-width="1"/>
+    <line x1="200" y1="440" x2="200" y2="590" stroke="rgba(0,0,0,0.06)" stroke-width="1"/>
+    <line x1="320" y1="440" x2="320" y2="590" stroke="rgba(0,0,0,0.06)" stroke-width="1"/>
+  </svg>
+
+  <div class="kitchen-header">🍳 Find accessories for your snowman!<br><small style="font-size:0.65em;opacity:0.75;">Collect all 5 items</small></div>
+
+  <!-- Kitchen collectible items (positioned on the scene) -->
+  <div class="kitchen-item-wrap" id="ki-pot"        style="left:5%; top:32%">
+    <svg class="kitchen-item-glow" viewBox="0 0 60 60" width="72" height="72"><rect x="10" y="20" width="40" height="30" rx="3" fill="#616161" stroke="#424242" stroke-width="1.5"/><rect x="6" y="18" width="48" height="6" rx="2" fill="#757575"/><rect x="22" y="10" width="16" height="10" rx="8" fill="none" stroke="#757575" stroke-width="3"/><ellipse cx="30" cy="20" rx="20" ry="5" fill="rgba(255,255,255,0.1)"/></svg>
+    <div class="kitchen-item-label">🪣 Pot</div>
+  </div>
+
+  <div class="kitchen-item-wrap" id="ki-broom"      style="right:5%; top:18%">
+    <svg class="kitchen-item-glow" viewBox="0 0 60 60" width="68" height="68"><rect x="28" y="5" width="4" height="35" rx="1" fill="#8d6e63"/><path d="M20,38 L30,40 L40,38 L38,55 L22,55 Z" fill="#ffd54f" stroke="#f9a825" stroke-width="1"/><line x1="25" y1="40" x2="24" y2="54" stroke="#f9a825" stroke-width="1"/><line x1="30" y1="40" x2="30" y2="55" stroke="#f9a825" stroke-width="1"/><line x1="35" y1="40" x2="36" y2="54" stroke="#f9a825" stroke-width="1"/></svg>
+    <div class="kitchen-item-label">🧹 Broom</div>
+  </div>
+
+  <div class="kitchen-item-wrap" id="ki-blueberry"  style="left:38%; top:41%">
+    <svg class="kitchen-item-glow" viewBox="0 0 60 60" width="64" height="64"><circle cx="24" cy="35" r="10" fill="#3f51b5"/><circle cx="36" cy="38" r="10" fill="#3949ab"/><circle cx="30" cy="26" r="10" fill="#5c6bc0"/><circle cx="22" cy="32" r="3" fill="#7986cb" opacity="0.6"/><circle cx="34" cy="36" r="2.5" fill="#7986cb" opacity="0.6"/></svg>
+    <div class="kitchen-item-label">🫐 Blueberries</div>
+  </div>
+
+  <div class="kitchen-item-wrap" id="ki-strawberry" style="left:58%; top:44%">
+    <svg class="kitchen-item-glow" viewBox="0 0 60 60" width="64" height="64"><path d="M30,12 Q18,28 20,40 Q24,52 30,54 Q36,52 40,40 Q42,28 30,12 Z" fill="#e53935" stroke="#c62828" stroke-width="1"/><circle cx="25" cy="30" r="1.2" fill="#ffcdd2"/><circle cx="30" cy="37" r="1.2" fill="#ffcdd2"/><circle cx="35" cy="30" r="1.2" fill="#ffcdd2"/><circle cx="28" cy="43" r="1.2" fill="#ffcdd2"/><circle cx="33" cy="43" r="1.2" fill="#ffcdd2"/><path d="M25,13 L28,7 L30,12 L32,7 L35,13" fill="#4caf50" stroke="#388e3c" stroke-width="1"/></svg>
+    <div class="kitchen-item-label">🍓 Strawberry</div>
+  </div>
+
+  <div class="kitchen-item-wrap" id="ki-carrot"     style="left:20%; top:50%">
+    <svg class="kitchen-item-glow" viewBox="0 0 60 60" width="68" height="68"><polygon points="10,30 55,26 55,34" fill="#ff8a50" stroke="#e67320" stroke-width="1"/><line x1="25" y1="28" x2="23" y2="20" stroke="#4caf50" stroke-width="2" stroke-linecap="round"/><line x1="35" y1="27" x2="34" y2="18" stroke="#4caf50" stroke-width="2" stroke-linecap="round"/><line x1="45" y1="27" x2="44" y2="19" stroke="#4caf50" stroke-width="2" stroke-linecap="round"/></svg>
+    <div class="kitchen-item-label">🥕 Carrot</div>
+  </div>
+
+  <!-- Kitchen collection bar -->
+  <div class="kitchen-bar" id="kitchenBar">
+    <div id="k-slot-0" class="k-slot"></div>
+    <div id="k-slot-1" class="k-slot"></div>
+    <div id="k-slot-2" class="k-slot"></div>
+    <div id="k-slot-3" class="k-slot"></div>
+    <div id="k-slot-4" class="k-slot"></div>
+    <div class="kitchen-count-label" id="kitchenCount">0 / 5</div>
+    <button class="go-build-btn" id="goBuildBtn" onclick="startBuild()">Let's Build! ⛄</button>
+  </div>
+</div>
+
+<!-- PHASE 5: DECORATE -->
+<div id="phase5" class="phase">
   <div class="decorate-header">
     <div class="decorate-title">Now make your snowman awesome!</div>
   </div>
@@ -936,7 +1309,7 @@ function stopBgMusic() {
 function toggleSound() {
   soundEnabled = !soundEnabled;
   document.getElementById('soundToggle').textContent = soundEnabled ? '🔊' : '🔇';
-  if (soundEnabled) { if (currentPhase === 3) startBgMusic(); }
+  if (soundEnabled) { if (currentPhase === 5) startBgMusic(); }
   else stopBgMusic();
 }
 
@@ -1234,10 +1607,10 @@ function completeRollStep(size) {
   clearTrace();
 
   if (rollStep >= 3) {
-    // All 3 balls done — transition to phase 3
+    // All 3 balls done — transition to house phase
     setTimeout(() => {
-      showRollMessage('All done! Time to decorate! 🎉');
-      setTimeout(() => startPhase3(), 1500);
+      showRollMessage('All done! Time to find some accessories! 🏠');
+      setTimeout(() => startHousePhase(), 1500);
     }, 1200);
   } else {
     // Next ball
@@ -1274,17 +1647,127 @@ function createSnowParticle(x, y) {
   requestAnimationFrame(anim);
 }
 
-// ===== PHASE 3: DECORATE =====
-function startPhase3() {
-  // Restore default ground (rolling ground auto-hides via CSS)
+// ===== PHASE 3: HOUSE =====
+function startHousePhase() {
   document.querySelector('.ground').style.display = '';
   showPhase(3);
+
+  // Animate house popping up
+  const wrapper = document.getElementById('houseWrapper');
+  setTimeout(() => {
+    wrapper.classList.add('house-appear');
+    playJingle();
+  }, 300);
+
+  // Show prompt after house appears
+  setTimeout(() => {
+    const prompt = document.getElementById('housePrompt');
+    prompt.classList.add('visible');
+  }, 1200);
+}
+
+function enterKitchen() {
+  playJingle();
+  const wrapper = document.getElementById('houseWrapper');
+  wrapper.style.transition = 'transform 0.4s, opacity 0.4s';
+  wrapper.style.transform = 'translateX(-50%) scale(0.1)';
+  wrapper.style.opacity = '0';
+  setTimeout(() => startKitchenPhase(), 500);
+}
+
+// ===== PHASE 4: KITCHEN =====
+let collectedKitchenItems = [];
+const KITCHEN_ITEMS_DATA = [
+  { elId: 'ki-pot',        id: 'pot' },
+  { elId: 'ki-broom',      id: 'broom' },
+  { elId: 'ki-blueberry',  id: 'blueberry1' },
+  { elId: 'ki-strawberry', id: 'strawberry' },
+  { elId: 'ki-carrot',     id: 'carrot' },
+];
+
+function startKitchenPhase() {
+  collectedKitchenItems = [];
+  // Reset all kitchen items
+  KITCHEN_ITEMS_DATA.forEach(({ elId }) => {
+    const el = document.getElementById(elId);
+    if (el) {
+      el.classList.remove('collected');
+      el.style.opacity = '1';
+      el.style.pointerEvents = 'none';
+    }
+  });
+  // Reset slots
+  for (let i = 0; i < 5; i++) {
+    const slot = document.getElementById('k-slot-' + i);
+    if (slot) { slot.innerHTML = ''; slot.classList.remove('filled'); }
+  }
+  document.getElementById('kitchenCount').textContent = '0 / 5';
+  document.getElementById('goBuildBtn').style.display = 'none';
+  document.getElementById('goBuildBtn').style.animation = 'none';
+
+  showPhase(4);
+
+  // Wire up click handlers
+  KITCHEN_ITEMS_DATA.forEach(({ elId, id }) => {
+    const item = ITEMS.find(i => i.id === id);
+    const el = document.getElementById(elId);
+    if (!el) return;
+    el.style.pointerEvents = 'auto';
+    el._kitchenHandler = () => collectKitchenItem(elId, item);
+    el.addEventListener('click', el._kitchenHandler);
+  });
+}
+
+function collectKitchenItem(elId, item) {
+  const el = document.getElementById(elId);
+  if (!el || el.classList.contains('collected')) return;
+
+  el.classList.add('collected');
+  el.removeEventListener('click', el._kitchenHandler);
+
+  playCollect();
+
+  // Fill next empty slot
+  const idx = collectedKitchenItems.length;
+  collectedKitchenItems.push(item);
+
+  setTimeout(() => {
+    const slot = document.getElementById('k-slot-' + idx);
+    if (slot) {
+      slot.innerHTML = item.svg;
+      slot.classList.add('filled');
+    }
+    const count = collectedKitchenItems.length;
+    document.getElementById('kitchenCount').textContent = count + ' / 5';
+
+    if (count >= 5) {
+      setTimeout(() => {
+        const btn = document.getElementById('goBuildBtn');
+        btn.style.display = 'block';
+        btn.style.animation = 'goBtn 0.5s cubic-bezier(0.175,0.885,0.32,1.275) forwards';
+        playJingle();
+      }, 400);
+    }
+  }, 520);
+}
+
+function startBuild() {
+  playJingle();
+  startPhase5();
+}
+
+// ===== PHASE 5: DECORATE (was Phase 3) =====
+function startPhase5() {
+  // Restore default ground (rolling ground auto-hides via CSS)
+  document.querySelector('.ground').style.display = '';
+  showPhase(5);
   startBgMusic();
-  buildItemTray();
+  buildItemTray(collectedKitchenItems.length > 0 ? collectedKitchenItems : null);
 }
 
 // ===== SVG ITEM LIBRARY =====
 const ITEMS = [
+  { id: 'string', name: 'String', category: 'face', size: 1.5, curvable: true, svg: `<svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><path d="M8,35 Q30,52 52,35" stroke="#1a1a1a" stroke-width="4.5" fill="none" stroke-linecap="round"/></svg>` },
   { id: 'carrot', name: 'Carrot', category: 'face', svg: `<svg viewBox="0 0 60 60"><polygon points="10,30 55,26 55,34" fill="#ff8a50" stroke="#e67320" stroke-width="1"/><line x1="25" y1="28" x2="23" y2="22" stroke="#4caf50" stroke-width="2" stroke-linecap="round"/><line x1="35" y1="27" x2="34" y2="20" stroke="#4caf50" stroke-width="2" stroke-linecap="round"/><line x1="45" y1="27" x2="44" y2="21" stroke="#4caf50" stroke-width="2" stroke-linecap="round"/></svg>` },
   { id: 'blueberry1', name: 'Blueberry', category: 'face', svg: `<svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="10" fill="#3f51b5"/><circle cx="27" cy="27" r="3" fill="#5c6bc0" opacity="0.7"/><circle cx="30" cy="24" r="1.5" fill="#7986cb" opacity="0.5"/></svg>` },
   { id: 'blueberry2', name: 'Blueberry', category: 'face', svg: `<svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="10" fill="#3f51b5"/><circle cx="27" cy="27" r="3" fill="#5c6bc0" opacity="0.7"/><circle cx="30" cy="24" r="1.5" fill="#7986cb" opacity="0.5"/></svg>` },
@@ -1309,12 +1792,17 @@ const ITEMS = [
   { id: 'apron', name: 'Apron', category: 'body', size: 3, svg: `<svg viewBox="0 0 60 60"><path d="M15,15 L15,50 Q15,55 30,55 Q45,55 45,50 L45,15 Q30,20 15,15 Z" fill="#fff9c4" stroke="#f9a825" stroke-width="1.5"/><rect x="22" y="28" width="16" height="14" rx="2" fill="#fffde7" stroke="#f9a825" stroke-width="1"/><line x1="15" y1="15" x2="5" y2="10" stroke="#f9a825" stroke-width="2" stroke-linecap="round"/><line x1="45" y1="15" x2="55" y2="10" stroke="#f9a825" stroke-width="2" stroke-linecap="round"/></svg>` },
 ];
 
-function buildItemTray() {
+function buildItemTray(itemsToShow) {
   const tray = document.getElementById('itemTray');
   tray.innerHTML = '';
-  ITEMS.forEach(item => {
+  const baseList = (itemsToShow && itemsToShow.length > 0 ? itemsToShow : ITEMS);
+  const stringItem = ITEMS.find(i => i.id === 'string');
+  const finalList = (stringItem && !baseList.some(i => i.id === 'string'))
+    ? [stringItem, ...baseList]
+    : baseList;
+  finalList.forEach(item => {
     const el = document.createElement('div');
-    el.className = 'tray-item';
+    el.className = 'tray-item' + (item.curvable ? ' curvable-hint' : '');
     el.dataset.itemId = item.id;
     el.innerHTML = item.svg + `<span class="item-label">${item.name}</span>`;
     el.addEventListener('pointerdown', (e) => startDragFromTray(e, item));
@@ -1496,6 +1984,25 @@ function placeItem(item, x, y) {
     el.remove();
     playRemove();
   });
+
+  // Curvable string: tap cycles smile → neutral → sad
+  if (item.curvable) {
+    const curveStates = [
+      `<svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><path d="M8,35 Q30,52 52,35" stroke="#1a1a1a" stroke-width="4.5" fill="none" stroke-linecap="round"/></svg>`,
+      `<svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><path d="M8,38 L52,38" stroke="#1a1a1a" stroke-width="4.5" fill="none" stroke-linecap="round"/></svg>`,
+      `<svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><path d="M8,42 Q30,26 52,42" stroke="#1a1a1a" stroke-width="4.5" fill="none" stroke-linecap="round"/></svg>`,
+    ];
+    let curveIdx = 0;
+    el.addEventListener('pointerup', () => {
+      if (!didLongPress && dragState === null) {
+        curveIdx = (curveIdx + 1) % curveStates.length;
+        el.innerHTML = curveStates[curveIdx];
+        el.querySelector('svg').style.width = sz + 'px';
+        el.querySelector('svg').style.height = sz + 'px';
+        playChime();
+      }
+    });
+  }
 
   area.appendChild(el);
   playPlace();
